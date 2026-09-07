@@ -11,6 +11,9 @@ export interface BlobStore {
   getGzip(key: string): Promise<string | null>;
   exists(key: string): Promise<boolean>;
   putPublic(key: string, body: string, contentType: string): Promise<void>;
+  // raw bytes, not gzipped: logos
+  putBytes(key: string, bytes: Uint8Array, contentType: string): Promise<void>;
+  getBytes(key: string): Promise<Uint8Array | null>;
 }
 
 class LocalBlobStore implements BlobStore {
@@ -34,6 +37,15 @@ class LocalBlobStore implements BlobStore {
     const p = this.path(key);
     mkdirSync(dirname(p), { recursive: true });
     writeFileSync(p, body);
+  }
+  async putBytes(key: string, bytes: Uint8Array) {
+    const p = this.path(key);
+    mkdirSync(dirname(p), { recursive: true });
+    writeFileSync(p, bytes);
+  }
+  async getBytes(key: string) {
+    const p = this.path(key);
+    return existsSync(p) ? new Uint8Array(readFileSync(p)) : null;
   }
 }
 
@@ -72,6 +84,16 @@ class R2BlobStore implements BlobStore {
     const res = await this.client.fetch(this.url(key), { method: 'PUT', body, headers: { 'content-type': contentType } });
     if (!res.ok) throw new Error(`r2 put ${key} failed: ${res.status}`);
   }
+  async putBytes(key: string, bytes: Uint8Array, contentType: string) {
+    const res = await this.client.fetch(this.url(key), { method: 'PUT', body: bytes as BodyInit, headers: { 'content-type': contentType } });
+    if (!res.ok) throw new Error(`r2 put ${key} failed: ${res.status}`);
+  }
+  async getBytes(key: string) {
+    const res = await this.client.fetch(this.url(key));
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error(`r2 get ${key} failed: ${res.status}`);
+    return new Uint8Array(await res.arrayBuffer());
+  }
 }
 
 export function createBlobStore(cfg: Config): BlobStore {
@@ -89,4 +111,5 @@ export const blobKeys = {
   // a per-posting detail response is more specific evidence than the board list it came from
   posting: (vendor: string, slug: string, externalId: string, sha: string) => `postings/${vendor}/${safe(slug)}/${safe(externalId)}/${sha}.json.gz`,
   page: (sha: string) => `pages/${sha}.html.gz`,
+  logo: (companyId: number, sha: string, ext: string) => `logos/${companyId}/${sha}.${ext}`,
 };

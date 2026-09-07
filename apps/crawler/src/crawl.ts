@@ -29,6 +29,9 @@ import { companies } from '@jdr/db/schema';
 import { and, eq, isNull } from 'drizzle-orm';
 import { blobKeys, type BlobStore } from './blobs.ts';
 import { VENDOR_DELAY_MS, type Config } from './env.ts';
+import { enrichIdentity, identityDue } from './identity.ts';
+export { describeError } from './errors.ts';
+import { describeError } from './errors.ts';
 
 export interface CrawlOptions {
   dryRun: boolean;
@@ -98,7 +101,7 @@ export async function crawlBoard(db: Db, blobs: BlobStore, cfg: Config, board: B
   let truncated = false;
   for (let p of postings) {
     let c = classifyPosting(board.atsVendor, p);
-    if (!isNySignal(c.jurisdiction) && !p.needsDetail) continue;
+    if (!isNySignal(c.coverage) && !p.needsDetail) continue;
 
     let needsDetail = false;
     let postingRawKey = rawKey;
@@ -121,7 +124,7 @@ export async function crawlBoard(db: Db, blobs: BlobStore, cfg: Config, board: B
         }
       }
       // workday rows only reveal their real locations in the detail call
-      if (!isNySignal(c.jurisdiction)) continue;
+      if (!isNySignal(c.coverage)) continue;
     }
 
     let pageKey: string | null = null;
@@ -148,15 +151,15 @@ export async function crawlBoard(db: Db, blobs: BlobStore, cfg: Config, board: B
       isOffsite: c.isOffsite,
       title: p.title,
       locations: p.locations,
-      locClass: c.jurisdiction.locClass,
-      multiCity: c.jurisdiction.multiCity,
-      remoteUs: c.jurisdiction.remoteUs,
+      locClass: c.coverage.locClass,
+      multiCity: c.coverage.multiCity,
+      remoteUs: c.coverage.remoteUs,
       isEvergreen: isEvergreenTitle(p.title),
       employmentType: p.employmentType,
       contentSha256: await postingContentHash(p),
       rawKey: postingRawKey,
       pageKey,
-      jurisdiction: c.jurisdiction,
+      coverage: c.coverage,
       range: c.range,
       classifierVersion: c.classifierVersion,
       needsDetail,
@@ -187,27 +190,28 @@ export async function crawlBoard(db: Db, blobs: BlobStore, cfg: Config, board: B
   });
 
   if (boardName) await adoptBoardName(db, board.companyId, boardName);
+  // first crawl of a board (or once a month while unverified): real name and logo from the vendor page
+  const [company] = await db.select().from(companies).where(eq(companies.id, board.companyId));
+  if (company && identityDue(company)) {
+    const id = await enrichIdentity(db, blobs, cfg, board, company, http, opts.log);
+    if (id.name || id.logo) opts.log(`${board.atsVendor}:${board.atsSlug} identity: ${id.name ?? '(no name)'}${id.logo ? ' + logo' : ''}`);
+  }
   if (diff.touchedIds.length || !board.lastOkAt) await recomputeCompanyRollups(db, [board.companyId]);
   result.ok = true;
   if (truncated) opts.log(`${board.atsVendor}:${board.atsSlug} hit the detail cap; ${seen.filter((s) => s.needsDetail).length} postings wait for tomorrow`);
   return result;
 }
 
-// the vendor's own board name beats a slug-derived guess, but never a name you verified
+// the vendor's feed name (greenhouse company_name) beats a slug-derived guess, but never a name you verified
+// or one already read from the vendor's page
 async function adoptBoardName(db: Db, companyId: number, name: string) {
-  const [c] = await db.select({ displayName: companies.displayName, verifiedAt: companies.verifiedAt }).from(companies).where(eq(companies.id, companyId));
-  if (!c || c.verifiedAt || c.displayName === name || !name.trim()) return;
+  const [c] = await db.select({ displayName: companies.displayName, verifiedAt: companies.verifiedAt, enrichment: companies.enrichment }).from(companies).where(eq(companies.id, companyId));
+  if (!c || c.verifiedAt || c.displayName === name || !name.trim() || c.enrichment?.nameSource === 'vendor_page') return;
   await db
     .update(companies)
-    .set({ displayName: name.trim() })
+    .set({ displayName: name.trim(), enrichment: { ...(c.enrichment ?? {}), nameSource: 'vendor_feed' } })
     .where(and(eq(companies.id, companyId), isNull(companies.verifiedAt)));
 }
 
-export function describeError(e: unknown): string {
-  if (e instanceof HttpError) return `http ${e.status}`;
-  if (e instanceof RateLimitedError) return 'rate limited (breaker tripped)';
-  if (e instanceof Error) return `${e.name}: ${e.message}`.slice(0, 200);
-  return String(e).slice(0, 200);
-}
 
 export type { BoardAdapter, RawPosting };

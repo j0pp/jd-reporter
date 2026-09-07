@@ -24,8 +24,7 @@
    "text": null,
    "expected": {
     "method": "structured",
-    "nyc": "covered",
-    "nys": "covered",
+    "coverage": "covered",
     "locClass": "nyc_strict",
     "multiCity": true,
     "isOffsite": false
@@ -52,8 +51,7 @@
    "text": null,
    "expected": {
     "method": "structured",
-    "nyc": "covered",
-    "nys": "covered",
+    "coverage": "covered",
     "locClass": "nyc_strict",
     "multiCity": true,
     "isOffsite": false
@@ -80,8 +78,7 @@
    "text": null,
    "expected": {
     "method": "structured",
-    "nyc": "covered",
-    "nys": "covered",
+    "coverage": "covered",
     "locClass": "nyc_strict",
     "multiCity": true,
     "isOffsite": false
@@ -110,8 +107,7 @@
    "text": null,
    "expected": {
     "method": "structured",
-    "nyc": "covered",
-    "nys": "covered",
+    "coverage": "covered",
     "locClass": "nyc_strict",
     "multiCity": true,
     "isOffsite": false

@@ -1,5 +1,6 @@
 import { stripHtml } from '../html.ts';
 import type { RawPosting, StructuredComp } from '../types.ts';
+import { cleanName, metaContent, titleOf } from './identity.ts';
 import type { BoardAdapter, BoardFetchResult, FetchCtx, UrlMatch } from './types.ts';
 import { dedupeStrings } from './types.ts';
 import { arr, isoFromMs, num, obj, str, UUID_RE } from './util.ts';
@@ -63,6 +64,19 @@ export const lever: BoardAdapter = {
 
   boardUrl(slug) {
     return `https://jobs.lever.co/${slug}`;
+  },
+
+  boardPageUrl(slug) {
+    return `https://jobs.lever.co/${slug}`;
+  },
+
+  // <title> is the company name when the employer set one, otherwise the bare slug (rejected by cleanName).
+  // twitter:image is the header logo; og:image is a 1200x630 social card
+  parseIdentity(html, slug) {
+    return {
+      name: cleanName(titleOf(html), slug),
+      logoUrl: metaContent(html, 'twitter:image') ?? metaContent(html, 'og:image'),
+    };
   },
 
   normalizeBoard(json) {

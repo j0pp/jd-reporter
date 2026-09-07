@@ -1,5 +1,5 @@
-# weekly: diff the feashliaa postings dump against known boards. zero ats requests; new boards get their
-# first real read in the next daily crawl
+# weekly: diff the feashliaa postings dump against known boards. zero ats requests; new boards (workday
+# included) land active and get their first real read in the next daily crawl. the first run is the bootstrap
 name: discover
 
 on:

@@ -1,14 +1,13 @@
-import { confirmDetectedFindings, finishRun, queueConfirmedForReview, recomputeCompanyRollups, startRun, type Db } from '@jdr/db';
+import { finishRun, recomputeCompanyRollups, startRun, type Db } from '@jdr/db';
 import { findings, postings } from '@jdr/db/schema';
-import { and, eq, inArray, isNull, sql } from 'drizzle-orm';
+import { and, eq, isNull, sql } from 'drizzle-orm';
 import type { Config } from './env.ts';
 import { waybackSave } from './wayback.ts';
 
-// after the vendor crawls: move findings along, archive the confirmed ones, refresh rollups
+// after the daily crawls: archive queued findings to wayback, refresh rollups. findings enter the review
+// queue on the crawl that detects them, so there is nothing to promote here
 export async function finalize(db: Db, cfg: Config, opts: { waybackCap: number; log: (m: string) => void }) {
   const runId = await startRun(db, 'finalize');
-  const confirmed = await confirmDetectedFindings(db, 20);
-  opts.log(`finalize: ${confirmed} findings confirmed by a second crawl`);
 
   // wayback before the human looks, so the reviewer sees a stable third-party link
   let archived = 0;
@@ -17,7 +16,7 @@ export async function finalize(db: Db, cfg: Config, opts: { waybackCap: number; 
       .select({ id: findings.id, url: postings.canonicalUrl })
       .from(findings)
       .innerJoin(postings, eq(postings.id, findings.postingId))
-      .where(and(inArray(findings.status, ['confirmed', 'needs_review']), isNull(findings.waybackUrl)))
+      .where(and(eq(findings.status, 'needs_review'), isNull(findings.waybackUrl)))
       .limit(opts.waybackCap);
     for (const r of rows) {
       const url = await waybackSave(cfg, r.url, opts.log);
@@ -31,9 +30,6 @@ export async function finalize(db: Db, cfg: Config, opts: { waybackCap: number; 
     opts.log('finalize: no wayback keys, skipping archive');
   }
 
-  const queued = await queueConfirmedForReview(db);
-  opts.log(`finalize: ${queued} findings queued for review`);
-
   // rollups for every company that has any finding at all; cheap and keeps the leaderboard honest
   const touched = await db.selectDistinct({ companyId: findings.companyId }).from(findings);
   await recomputeCompanyRollups(
@@ -42,6 +38,6 @@ export async function finalize(db: Db, cfg: Config, opts: { waybackCap: number; 
   );
 
   const [open] = await db.select({ n: sql<number>`count(*)` }).from(findings).where(eq(findings.status, 'needs_review'));
-  await finishRun(db, runId, { findingsCreated: confirmed, meta: { archived, queued, needsReview: Number(open?.n ?? 0) } });
-  opts.log(`finalize: ${Number(open?.n ?? 0)} findings now waiting in the review queue`);
+  await finishRun(db, runId, { meta: { archived, needsReview: Number(open?.n ?? 0) } });
+  opts.log(`finalize: ${Number(open?.n ?? 0)} findings waiting in the review queue`);
 }

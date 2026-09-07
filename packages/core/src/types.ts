@@ -62,9 +62,10 @@ export const FINDING_METHODS: ReadonlySet<RangeMethod> = new Set(['none', 'open_
 export type Coverage = 'covered' | 'possible' | 'no' | 'not_assessed';
 export type LocClass = 'nyc_strict' | 'ny_bare' | 'ny_state' | 'remote_us' | 'other';
 
-export interface JurisdictionResult {
-  nyc: Coverage;
-  nys: Coverage;
+// one answer for new york as a whole. the city and state laws ask for the same thing (a range) from the
+// same employers, so nothing downstream needs to know which one applies
+export interface CoverageResult {
+  coverage: Coverage;
   locClass: LocClass;
   multiCity: boolean;
   remoteUs: boolean;

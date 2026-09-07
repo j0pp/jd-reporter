@@ -84,27 +84,21 @@ async function processOne(db: Db, blobs: BlobStore, cfg: Config, s: Submission, 
       const adapter = getAdapter(vendor);
       const raw = await adapter.fetchPosting(slug, externalId, { http: httpForVendor(cfg, vendor, board!.learnedDelayMs, log), log });
       if (!raw) notes.push('that posting is no longer on the employer\u2019s board');
-      else if (!isNySignal(classifyPosting(vendor, raw).jurisdiction)) notes.push(`that posting lists "${raw.locations.join('; ') || 'no location'}", which we do not read as New York, so it is out of scope`);
+      else if (!isNySignal(classifyPosting(vendor, raw).coverage)) notes.push(`that posting lists "${raw.locations.join('; ') || 'no location'}", which we do not read as New York, so it is out of scope`);
       else notes.push('that posting will be picked up on the next crawl of this board');
     } else {
       postingId = p.id;
       const fs = await db
         .select()
         .from(findings)
-        .where(and(eq(findings.postingId, p.id), inArray(findings.status, ['detected', 'confirmed', 'needs_review', 'published'])));
+        .where(and(eq(findings.postingId, p.id), inArray(findings.status, ['needs_review', 'published'])));
       const f = fs[0];
       if (DISCLOSED_METHODS.has(p.range.method as never)) {
         notes.push(`range found: ${p.range.evidenceSpan ?? `${p.range.min ?? '?'}-${p.range.max ?? '?'}`}`);
       } else if (f) {
         findingId = f.id;
         if (f.status === 'published') status = 'published';
-        notes.push(
-          f.status === 'published'
-            ? 'no pay range on this posting; the finding is published'
-            : f.status === 'needs_review'
-              ? 'no pay range detected; a second read agreed and it is waiting for human review'
-              : 'no pay range detected; we will read it again in about a day before anyone reviews it',
-        );
+        notes.push(f.status === 'published' ? 'no pay range on this posting; the finding is published' : 'no pay range detected; it is waiting for human review');
       } else {
         notes.push(`we read this posting as "${p.range.method.replace(/_/g, ' ')}", which needs a human look rather than a finding`);
       }
@@ -114,7 +108,7 @@ async function processOne(db: Db, blobs: BlobStore, cfg: Config, s: Submission, 
       .select({ ny: sql<number>`count(*)`, missing: sql<number>`sum(case when json_extract(${postings.range}, '$.method') in ('none','open_ended','placeholder_range') then 1 else 0 end)` })
       .from(postings)
       .where(and(eq(postings.boardId, board!.id), sql`${postings.removedAt} is null`));
-    notes.push(`board read: ${Number(c?.ny ?? 0)} New York postings, ${Number(c?.missing ?? 0)} without a detected pay range (pending a second read and review)`);
+    notes.push(`board read: ${Number(c?.ny ?? 0)} New York postings, ${Number(c?.missing ?? 0)} without a detected pay range (pending review)`);
   }
 
   if (company && !company.inCohort) {

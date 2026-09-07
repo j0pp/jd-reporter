@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import { Logo } from '@/components/Logo';
 import { SearchBox } from '@/components/SearchBox';
 import { StatTile } from '@/components/StatTile';
 import { getLeaderboard, getSearchIndex, getSite } from '@/lib/data';
-import { fmtInt, pct, sectorLabel } from '@/lib/format';
+import { fmtInt, pct } from '@/lib/format';
 
 export default function Home() {
   const site = getSite();
@@ -17,7 +18,7 @@ export default function Home() {
           New York job postings that did not include a pay range.
         </h1>
         <p className="mt-6 max-w-3xl text-xl leading-relaxed text-ink-soft">
-          Read every day from each employer&apos;s own job board, checked twice, then approved by a person before it appears here. When a range shows up,
+          Read every day from each employer&apos;s own job board, then approved by a person before it appears here. When a range shows up,
           the entry disappears the next morning.
         </p>
         <div className="mt-10 max-w-3xl">
@@ -43,18 +44,18 @@ export default function Home() {
         {leaderboard.length === 0 ? (
           <div className="block mt-8 p-10 text-center">
             <p className="text-2xl font-black">Nothing published yet.</p>
-            <p className="mt-2 text-ink-soft">Findings appear only after a second crawl agrees and a human has reviewed them.</p>
+            <p className="mt-2 text-ink-soft">Findings appear only after a human has reviewed them.</p>
           </div>
         ) : (
           <ol className="mt-8 block divide-y-4 divide-rule">
             {leaderboard.map((c, i) => (
-              <li key={c.slug} className="grid items-center gap-4 px-6 py-5 md:grid-cols-[4rem_1fr_10rem_12rem] md:py-6">
+              <li key={c.slug} className="grid items-center gap-4 px-6 py-5 md:grid-cols-[4rem_4.5rem_1fr_10rem_12rem] md:py-6">
                 <span className="num text-3xl font-black text-muted md:text-4xl">{i + 1}</span>
+                <Logo src={c.logo} name={c.displayName} size={72} />
                 <div>
                   <Link href={`/c/${c.slug}`} className="text-2xl font-black leading-tight hover:text-accent md:text-3xl">
                     {c.displayName}
                   </Link>
-                  <div className="mt-1 text-sm font-semibold text-ink-soft">{sectorLabel(c.sector)}</div>
                 </div>
                 <div className="num text-5xl font-black leading-none md:text-6xl">{c.currentFindings}</div>
                 <div className="text-sm font-bold text-ink-soft">

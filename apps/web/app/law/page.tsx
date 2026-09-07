@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import { getSite } from '@/lib/data';
+import { LAWS } from '@/lib/laws';
 
 export const metadata: Metadata = { title: 'The law: NYC and New York State pay range requirements' };
 
 export default function Law() {
-  const site = getSite();
   return (
     <article className="prose-block max-w-3xl py-12 text-lg leading-relaxed">
       <h1 className="text-5xl font-black leading-[0.95] tracking-tight md:text-6xl">The two laws</h1>
@@ -30,7 +29,7 @@ export default function Law() {
 
       <h2>How this site uses them</h2>
       <ul>
-        <li>A city posting is covered by both laws; an upstate posting by the state law only. Each finding says which.</li>
+        <li>A city posting is covered by both laws; an upstate posting by the state law only. Either way the posting needs a range, so we do not tell them apart.</li>
         <li>We cannot observe the &ldquo;reports to a New York supervisor&rdquo; clause, so we never rely on it.</li>
         <li>We infer four or more employees from five or more open postings. If you know that inference is wrong for a company, tell us.</li>
         <li>A single stated figure satisfies the intent of both laws and we treat it as disclosed.</li>
@@ -42,17 +41,14 @@ export default function Law() {
         the public who noticed a posting without a range may report it. A New York City posting can be reported to either agency.
       </p>
       <ul>
-        {site.jurisdictions.map((l) => (
+        {LAWS.map((l) => (
           <li key={l.code}>
             <strong>{l.name}</strong>: {l.agency}.{' '}
-            {l.complaintUrl ? (
-              <a href={l.complaintUrl} target="_blank" rel="noopener noreferrer" className="font-bold underline">
-                {l.complaintLabel ?? 'Report'} ↗
-              </a>
-            ) : null}
+            <a href={l.complaintUrl} target="_blank" rel="noopener noreferrer" className="font-bold underline">
+              {l.complaintLabel} ↗
+            </a>
           </li>
         ))}
-        {site.jurisdictions.length === 0 ? <li>Agency links appear here once the reference data is loaded.</li> : null}
       </ul>
     </article>
   );

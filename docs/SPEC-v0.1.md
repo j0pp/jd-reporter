@@ -2,6 +2,12 @@
 
 Decisions locked in this doc: TypeScript end to end, free tiers only, JSON-API ATSes only for v1, scope = every NYC-performable posting we can reach on those ATSes, any industry.
 
+> **Kept as written; two things below are no longer true.** The `detected → confirmed` step and the auto-publish
+> rule were both dropped in migration `0003_no_second_look`: a finding now enters `needs_review` on the crawl
+> that detects it, and only a person moves it to `published`. And `jurisdiction` became one `coverage` classifier
+> (migration `0002_one_coverage`). The review triggers in §6 survive as the reasons a finding carries into the
+> queue. See the README for what actually ships.
+
 ## 1. What the MVP is
 
 A seeded, continuously re-crawled ledger of NYC job postings from employer-owned job boards, with a public site that shows per-company compliance with the NYC/NYS pay-range laws, and a submit form that lets anyone paste a posting URL and have it verified and archived by a background job. Unclear cases go to a review queue you work through in a simple admin page.

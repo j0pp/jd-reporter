@@ -1,26 +1,39 @@
 import { RateLimitedError } from '@jdr/core';
-import { activeBoardsForCrawl, ensureBoard, findBoard, finishRun, markBoardCrawled, startRun, type Board } from '@jdr/db';
+import { activeBoardsForCrawl, ensureBoard, findBoard, finishRun, markBoardCrawled, startRun, type Board, type Company, type Db } from '@jdr/db';
+import { boards, companies } from '@jdr/db/schema';
 import { Command } from 'commander';
-import { crawlBoard, describeError } from './crawl.ts';
+import { and, asc, desc, eq, inArray, isNull } from 'drizzle-orm';
+import { crawlBoard, describeError, httpForVendor } from './crawl.ts';
 import { discover } from './discover.ts';
 import { loadConfig, openBlobs, openDb } from './env.ts';
 import { exportSiteData } from './export.ts';
 import { finalize } from './finalize.ts';
+import { enrichIdentity, identityDue } from './identity.ts';
 import { processSubmissions } from './process.ts';
-import { seed } from './seed.ts';
+
+// companies with no identity fetched yet (or a stale one), one board each, biggest ny footprint first
+async function boardsNeedingIdentity(db: Db, o: { vendor?: string; includeInactive: boolean; limit?: number }) {
+  const conds = [eq(companies.status, 'active')];
+  if (o.vendor) conds.push(eq(boards.atsVendor, o.vendor as never));
+  if (!o.includeInactive) conds.push(inArray(boards.status, ['active', 'crawl_error']));
+  const rows = await db
+    .select({ board: boards, company: companies })
+    .from(boards)
+    .innerJoin(companies, eq(companies.id, boards.companyId))
+    .where(and(...conds))
+    .orderBy(asc(boards.atsVendor), desc(companies.openPostingsNy));
+  const seen = new Set<number>();
+  const out: { board: Board; company: Company }[] = [];
+  for (const r of rows) {
+    if (seen.has(r.company.id) || !identityDue(r.company)) continue;
+    seen.add(r.company.id);
+    out.push(r);
+  }
+  return o.limit ? out.slice(0, o.limit) : out;
+}
 
 const log = (m: string) => console.log(`${new Date().toISOString().slice(11, 19)} ${m}`);
 const program = new Command().name('jdr').description('jd reporter crawler');
-
-program
-  .command('seed')
-  .description('load the seed analysis (cohort + candidates csvs) into boards and companies')
-  .option('--workday-top <n>', 'how many workday tenants to activate, by nyc volume', '50')
-  .action(async (o: { workdayTop: string }) => {
-    const cfg = loadConfig();
-    const db = await openDb(cfg);
-    await seed(db, cfg, { workdayTop: Number(o.workdayTop), log });
-  });
 
 program
   .command('crawl')
@@ -107,8 +120,39 @@ program
   });
 
 program
+  .command('enrich')
+  .description('fetch real names and logos from vendor board pages for unverified companies (two requests per board, once)')
+  .option('--vendor <vendor>', 'only this vendor')
+  .option('--limit <n>', 'max boards this run')
+  .option('--include-inactive', 'also boards not currently crawled (inactive workday tenants)', false)
+  .action(async (o: { vendor?: string; limit?: string; includeInactive: boolean }) => {
+    const cfg = loadConfig();
+    const db = await openDb(cfg);
+    const blobs = openBlobs(cfg);
+    const rows = await boardsNeedingIdentity(db, { vendor: o.vendor, includeInactive: o.includeInactive, limit: o.limit ? Number(o.limit) : undefined });
+    log(`enrich: ${rows.length} boards`);
+    const clients = new Map<string, ReturnType<typeof httpForVendor>>();
+    let named = 0;
+    let logos = 0;
+    for (const [i, { board, company }] of rows.entries()) {
+      const http = clients.get(board.atsVendor) ?? httpForVendor(cfg, board.atsVendor, board.learnedDelayMs, log);
+      clients.set(board.atsVendor, http);
+      try {
+        const r = await enrichIdentity(db, blobs, cfg, board, company, http, log);
+        named += r.name ? 1 : 0;
+        logos += r.logo ? 1 : 0;
+        log(`${String(i + 1).padStart(4)}/${rows.length} ${`${board.atsVendor}:${board.atsSlug}`.padEnd(48)} ${r.name ?? '-'}${r.logo ? ' + logo' : ''}`);
+      } catch (e) {
+        log(`${`${board.atsVendor}:${board.atsSlug}`.padEnd(48)} ERROR ${describeError(e)}`);
+        if (e instanceof RateLimitedError) continue;
+      }
+    }
+    log(`enrich: ${named} names, ${logos} logos across ${rows.length} boards`);
+  });
+
+program
   .command('finalize')
-  .description('confirm findings seen twice, archive to wayback, queue for review, refresh rollups')
+  .description('after the crawls: archive queued findings to wayback, refresh rollups')
   .option('--wayback-cap <n>', 'captures per run', '100')
   .action(async (o: { waybackCap: string }) => {
     const cfg = loadConfig();
@@ -137,13 +181,12 @@ program
 
 program
   .command('discover')
-  .description('diff the feashliaa postings dump against known boards; zero ats requests')
-  .option('--activate-workday', 'crawl newly found workday tenants (default: inactive)', false)
+  .description('the bootstrap and the weekly top-up: diff the feashliaa postings dump against known boards; zero ats requests')
   .option('--dry-run', 'count only', false)
-  .action(async (o: { activateWorkday: boolean; dryRun: boolean }) => {
+  .action(async (o: { dryRun: boolean }) => {
     const cfg = loadConfig();
     const db = await openDb(cfg);
-    await discover(db, cfg, { activateWorkday: o.activateWorkday, dryRun: o.dryRun, log });
+    await discover(db, cfg, { dryRun: o.dryRun, log });
   });
 
 program.parseAsync(process.argv).catch((e) => {

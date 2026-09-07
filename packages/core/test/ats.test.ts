@@ -83,7 +83,7 @@ describe('adapters normalize vendor json', () => {
     expect(p!.structuredComp).toEqual([{ min: 120000, max: 150000, currency: 'USD', interval: null, summary: 'NYC' }]);
     const c = classifyPosting('greenhouse', p!);
     expect(c.range.method).toBe('structured');
-    expect(c.jurisdiction.nyc).toBe('covered');
+    expect(c.coverage.coverage).toBe('covered');
   });
 
   it('lever (palantir): the salary paragraph in `additional` html is read even when additionalPlain is empty', () => {
@@ -139,7 +139,7 @@ describe('adapters normalize vendor json', () => {
     expect(p!.locations).toEqual(['New York', 'San Francisco']);
     const c = classifyPosting('ashby', p!);
     expect(c.range.method).toBe('structured');
-    expect(c.jurisdiction.multiCity).toBe(true);
+    expect(c.coverage.multiCity).toBe(true);
   });
 
   it('workday: list rows need a detail call and carry the req id', () => {

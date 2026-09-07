@@ -13,7 +13,7 @@ export const COMPANY_STATUSES = ['active', 'excluded', 'merged'] as const;
 export const BOARD_STATUSES = ['active', 'inactive', 'crawl_error', 'excluded'] as const;
 export const LOC_CLASSES = ['nyc_strict', 'ny_bare', 'ny_state', 'remote_us', 'other'] as const;
 export const FINDING_TYPES = ['missing_range', 'open_ended_range', 'placeholder_range'] as const;
-export const FINDING_STATUSES = ['detected', 'withdrawn', 'confirmed', 'needs_review', 'published', 'rejected', 'fixed', 'stale'] as const;
+export const FINDING_STATUSES = ['needs_review', 'withdrawn', 'published', 'rejected', 'fixed', 'stale'] as const;
 export const SUBMISSION_STATUSES = ['received', 'rejected', 'queued', 'processing', 'verified', 'published', 'error'] as const;
 export const SUBMISSION_SOURCES = ['ats_posting', 'ats_board', 'careers_page', 'aggregator', 'unknown'] as const;
 export const FALSE_POSITIVE_REASONS = [
@@ -32,9 +32,8 @@ export type FindingStatus = (typeof FINDING_STATUSES)[number];
 export type FindingType = (typeof FINDING_TYPES)[number];
 export type SubmissionStatus = (typeof SUBMISSION_STATUSES)[number];
 
-export interface JurisdictionJson {
-  nyc: string;
-  nys: string;
+export interface CoverageJson {
+  coverage: string;
   locClass: string;
   multiCity: boolean;
   remoteUs: boolean;
@@ -53,6 +52,13 @@ export interface RangeJson {
   confidence: number;
 }
 
+export interface CompanyEnrichment {
+  identityAt?: string;
+  nameSource?: 'vendor_page' | 'vendor_feed' | 'seed' | 'manual';
+  logoUrl?: string | null;
+  [key: string]: unknown;
+}
+
 // the public entity: what the leaderboard and company page are about
 export const companies = sqliteTable(
   'companies',
@@ -68,7 +74,10 @@ export const companies = sqliteTable(
     sectorSource: text('sector_source'),
     sectorConfidence: text('sector_confidence'),
     naics2: text('naics2'),
-    enrichment: json<Record<string, unknown>>('enrichment'),
+    // identityAt / nameSource / logoUrl live in here; the logo bytes are the r2 object at logo_key
+    enrichment: json<CompanyEnrichment>('enrichment'),
+    logoKey: text('logo_key'),
+    logoSource: text('logo_source'),
     isStaffingFirm: bool('is_staffing_firm').notNull().default(false),
     // 5+ open postings anywhere: the observable proxy for the 4-employee threshold
     inCohort: bool('in_cohort').notNull().default(false),
@@ -142,7 +151,7 @@ export const postings = sqliteTable(
     // r2 keys: the board response this state was read from, and the employer page when offsite
     rawKey: text('raw_key'),
     pageKey: text('page_key'),
-    jurisdiction: json<JurisdictionJson>('jurisdiction').notNull(),
+    coverage: json<CoverageJson>('coverage').notNull(),
     range: json<RangeJson>('range').notNull(),
     classifierVersion: text('classifier_version').notNull(),
     classifiedAt: tsNow('classified_at'),
@@ -171,8 +180,7 @@ export const findings = sqliteTable(
       .notNull()
       .references(() => companies.id),
     type: text('type', { enum: FINDING_TYPES }).notNull(),
-    status: text('status', { enum: FINDING_STATUSES }).notNull().default('detected'),
-    jurisdictionCodes: json<string[]>('jurisdiction_codes').notNull(),
+    status: text('status', { enum: FINDING_STATUSES }).notNull().default('needs_review'),
     reviewReasons: json<string[]>('review_reasons').notNull(),
     firstRawKey: text('first_raw_key'),
     firstPageKey: text('first_page_key'),
@@ -184,7 +192,6 @@ export const findings = sqliteTable(
     fixedRawKey: text('fixed_raw_key'),
     detectedAt: tsNow('detected_at'),
     withdrawnAt: ts('withdrawn_at'),
-    confirmedAt: ts('confirmed_at'),
     reviewAt: ts('review_at'),
     publishedAt: ts('published_at'),
     rejectedAt: ts('rejected_at'),
@@ -265,18 +272,6 @@ export const crawlRuns = sqliteTable('crawl_runs', {
   meta: json<Record<string, unknown>>('meta'),
 });
 
-// reference data, one row per law
-export const jurisdictions = sqliteTable('jurisdictions', {
-  code: text('code').primaryKey(),
-  name: text('name').notNull(),
-  statuteCite: text('statute_cite').notNull(),
-  agency: text('agency').notNull(),
-  complaintUrl: text('complaint_url'),
-  complaintLabel: text('complaint_label'),
-  requiredFields: json<string[]>('required_fields').notNull(),
-  coverageRule: text('coverage_rule').notNull(),
-});
-
 export type Company = typeof companies.$inferSelect;
 export type NewCompany = typeof companies.$inferInsert;
 export type Board = typeof boards.$inferSelect;
@@ -289,4 +284,3 @@ export type Review = typeof reviews.$inferSelect;
 export type Submission = typeof submissions.$inferSelect;
 export type NewSubmission = typeof submissions.$inferInsert;
 export type CrawlRun = typeof crawlRuns.$inferSelect;
-export type Jurisdiction = typeof jurisdictions.$inferSelect;

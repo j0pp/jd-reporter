@@ -16,3 +16,4 @@ apps/web/next-env.d.ts
 .wrangler/
 .dev.vars
 *.tsbuildinfo
+apps/web/public/logos/

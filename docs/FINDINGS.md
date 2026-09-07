@@ -2,6 +2,11 @@
 
 Written 2026-09-05 after two days of poking at the Feashliaa job dump and 48 live boards. Everything here is from `jd-reporter-seed/`; numbers are as of the 2026-09-04 dump snapshot and the 2026-09-05 probe. I'd treat this as the design input for the crawler, classifier and schema, and expect to revise it after the first full crawl.
 
+> **One revision, recorded here rather than edited in.** The "wait 20 hours and re-crawl before believing it"
+> rule appears twice below and is no longer how it works: the second look was dropped in migration
+> `0003_no_second_look`, because a finding was never published without a human anyway and the delay only made
+> the queue stale. Everything a finding must clear before it is called missing still holds.
+
 ## The short version: problems we hit, and the fix for each
 
 1. **Most postings have a range.** At the big NYC employers, 44 of 48 boards disclose pay on 95%+ of postings. There is no giant wall of offenders at the top.

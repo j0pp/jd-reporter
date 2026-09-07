@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Placeholder } from '@/components/Placeholder';
-import { getCompany, getFinding, getFindings, getSite } from '@/lib/data';
+import { getCompany, getFinding, getFindings } from '@/lib/data';
 import { FINDING_LABEL, fmtDateTime } from '@/lib/format';
+import { LAWS } from '@/lib/laws';
 
 export const dynamicParams = false;
 
@@ -15,10 +16,20 @@ export function generateStaticParams() {
 
 type Params = Promise<{ id: string }>;
 
+// see the note in /c/[slug]: the root layout deliberately sets no url or per-page title for og to inherit
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { id } = await params;
   const f = getFinding(Number(id));
-  return { title: f ? `${f.companyName}: ${f.title} (evidence)` : 'Evidence' };
+  if (!f) return { title: 'Evidence' };
+  const title = `${f.companyName}: ${f.title} (evidence)`;
+  const description = `Read from ${f.companyName}'s own job board on ${fmtDateTime(f.detectedAt)}, this New York posting carried no pay range. The record, and how to check it.`;
+  return {
+    title,
+    description,
+    alternates: { canonical: `/p/${f.id}` },
+    openGraph: { type: 'article', url: `/p/${f.id}`, title, description },
+    twitter: { card: 'summary', title, description },
+  };
 }
 
 // the evidence page: a dated observation about one web page, with everything needed to check it yourself
@@ -28,8 +39,6 @@ export default async function EvidencePage({ params }: { params: Params }) {
   if (!f && id === '0') return <Placeholder what="No findings have been published yet." />;
   if (!f) notFound();
   const company = getCompany(f.companySlug);
-  const site = getSite();
-  const laws = site.jurisdictions.filter((l) => f.jurisdictionCodes.includes(l.code));
 
   return (
     <>
@@ -40,11 +49,6 @@ export default async function EvidencePage({ params }: { params: Params }) {
         <h1 className="mt-2 text-4xl font-black leading-[1] tracking-tight md:text-6xl">{f.title}</h1>
         <div className="mt-5 flex flex-wrap items-center gap-2 text-sm">
           <span className="tag tag-accent">{FINDING_LABEL[f.type] ?? f.type}</span>
-          {f.jurisdictionCodes.map((c) => (
-            <span key={c} className="tag">
-              {c.toUpperCase()}
-            </span>
-          ))}
           <span className="font-semibold text-ink-soft">{f.locations.join(' · ')}</span>
         </div>
       </section>
@@ -54,7 +58,7 @@ export default async function EvidencePage({ params }: { params: Params }) {
           As of {fmtDateTime(f.detectedAt)}, this posting did not include a pay range.
         </p>
         <p className="mt-4 max-w-3xl text-lg text-ink-soft">
-          We read it again at least 20 hours later and it still did not, and a person reviewed it on {fmtDateTime(f.publishedAt)} before it was published here.
+          A person reviewed it on {fmtDateTime(f.publishedAt)} before it was published here.
           {f.type === 'open_ended_range' ? ' The posting states one bound only.' : ''}
           {f.type === 'placeholder_range' ? ' The posting contains an unfilled pay template, which tells us a range was meant to be there.' : ''}
         </p>
@@ -94,17 +98,12 @@ export default async function EvidencePage({ params }: { params: Params }) {
         <div className="block-soft p-6">
           <h2 className="text-lg font-black">What the law asks for</h2>
           <ul className="mt-3 space-y-3 text-sm leading-relaxed">
-            {laws.map((l) => (
+            {LAWS.map((l) => (
               <li key={l.code}>
-                <strong>{l.name}</strong> ({l.statuteCite}): {l.coverageRule}
-                {l.complaintUrl ? (
-                  <>
-                    {' '}
-                    <a href={l.complaintUrl} target="_blank" rel="noopener noreferrer" className="font-bold underline">
-                      {l.complaintLabel ?? l.agency} ↗
-                    </a>
-                  </>
-                ) : null}
+                <strong>{l.name}</strong> ({l.statuteCite}): {l.coverageRule}{' '}
+                <a href={l.complaintUrl} target="_blank" rel="noopener noreferrer" className="font-bold underline">
+                  {l.complaintLabel} ↗
+                </a>
               </li>
             ))}
           </ul>

@@ -1,8 +1,9 @@
-import type { SiteCompany, SiteJurisdiction } from '@/lib/data';
+import type { SiteCompany } from '@/lib/data';
 import { fmtDate } from '@/lib/format';
+import { LAWS } from '@/lib/laws';
 
 // the conditional legal sentence. never "violation", "illegal", "penalty": we describe a page and state the rule
-export function LawNote({ company, laws }: { company: SiteCompany; laws: SiteJurisdiction[] }) {
+export function LawNote({ company }: { company: SiteCompany }) {
   return (
     <aside className="block-soft p-6 md:p-8">
       <h2 className="text-xl font-black">Why we believe the pay-range laws apply here</h2>
@@ -21,13 +22,11 @@ export function LawNote({ company, laws }: { company: SiteCompany; laws: SiteJur
         filed anything.
       </p>
       <div className="mt-6 flex flex-wrap gap-3">
-        {laws
-          .filter((l) => l.complaintUrl)
-          .map((l) => (
-            <a key={l.code} href={l.complaintUrl!} target="_blank" rel="noopener noreferrer" className="btn btn-ghost text-xs">
-              {l.complaintLabel ?? l.agency} ↗
-            </a>
-          ))}
+        {LAWS.map((l) => (
+          <a key={l.code} href={l.complaintUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost text-xs">
+            {l.complaintLabel} ↗
+          </a>
+        ))}
       </div>
     </aside>
   );

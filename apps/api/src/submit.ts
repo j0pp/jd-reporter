@@ -91,9 +91,8 @@ submitRoutes.post('/submit', async (c) => {
           locations: raw.locations,
           method: cl.range.method,
           evidence: cl.range.evidenceSpan ?? null,
-          nyc: cl.jurisdiction.nyc,
-          nys: cl.jurisdiction.nys,
-          inScope: isNySignal(cl.jurisdiction),
+          coverage: cl.coverage.coverage,
+          inScope: isNySignal(cl.coverage),
           isOffsite: cl.isOffsite,
         };
       } else {
@@ -143,14 +142,14 @@ submitRoutes.get('/status/:token', async (c) => {
 });
 
 function quickMessage(q: Record<string, unknown> | null): string {
-  if (!q) return 'queued: we will read the board, then check again in about a day before anyone reviews it';
+  if (!q) return 'queued: we will read the employer\u2019s board ourselves and put the result in the review queue';
   if (q.notFound) return 'we could not find that posting on the board right now; queued for a full read';
   if (q.error) return 'queued: the quick check did not complete, the full read will';
   if (q.inScope === false) return `quick check: "${(q.locations as string[]).join('; ') || 'no location'}" does not read as New York, so this posting is out of scope; queued to confirm`;
   const m = String(q.method);
   if (m === 'structured' || m === 'text_range' || m === 'fixed_rate') return `quick check: a pay figure was found (${q.evidence ?? m}); queued to confirm`;
   if (m === 'offsite_unverified') return 'quick check: the board feed has no pay data and the posting lives on the employer\u2019s own site; queued to read that page';
-  return `quick check: no pay range detected (${m.replace(/_/g, ' ')}); queued for a second read and human review`;
+  return `quick check: no pay range detected (${m.replace(/_/g, ' ')}); queued for human review`;
 }
 
 async function verifyTurnstile(secret: string, token: string, ip: string): Promise<boolean> {

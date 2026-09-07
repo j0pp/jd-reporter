@@ -25,7 +25,8 @@ export const FINDING_LABEL: Record<string, string> = {
   placeholder_range: 'Unfilled template',
 };
 
-// the seed's taxonomy (data/sectors/sectors.csv)
+// 18 buckets, each roughly a naics 2-digit code. only the admin verify card uses this today: nothing fills
+// sector automatically and the public pages do not show it until something trustworthy does
 export const SECTOR_LABEL: Record<string, string> = {
   software: 'Software & internet',
   ai: 'AI',
@@ -48,5 +49,3 @@ export const SECTOR_LABEL: Record<string, string> = {
 };
 
 export const SECTORS = Object.keys(SECTOR_LABEL);
-
-export const sectorLabel = (s: string | null) => (s ? SECTOR_LABEL[s] ?? s.replace(/_/g, ' ') : 'Sector not set');

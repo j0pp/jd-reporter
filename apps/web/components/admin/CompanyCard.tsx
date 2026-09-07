@@ -1,8 +1,35 @@
 'use client';
 
 import * as React from 'react';
-import { api } from '@/lib/api';
+import { API_BASE, api, getAdminToken } from '@/lib/api';
+import { Logo } from '../Logo';
 import { SECTORS, type AdminCompany } from './types';
+
+// the stored logo through the admin blob route (needs the bearer token, so it is fetched into an object url)
+function AdminLogo({ company }: { company: AdminCompany }) {
+  const [src, setSrc] = React.useState<string | null>(null);
+  React.useEffect(() => {
+    let url: string | null = null;
+    setSrc(null);
+    if (!company.logoKey) return;
+    const headers = new Headers();
+    const t = getAdminToken();
+    if (t) headers.set('authorization', `Bearer ${t}`);
+    fetch(`${API_BASE}/api/admin/blob?key=${encodeURIComponent(company.logoKey)}`, { headers, credentials: 'include' })
+      .then((r) => (r.ok ? r.blob() : null))
+      .then((b) => {
+        if (b) {
+          url = URL.createObjectURL(b);
+          setSrc(url);
+        }
+      })
+      .catch(() => undefined);
+    return () => {
+      if (url) URL.revokeObjectURL(url);
+    };
+  }, [company.logoKey]);
+  return <Logo src={src} name={company.displayName} size={44} />;
+}
 
 // the verify card: a finding cannot publish until a person confirmed the name and sector (the nyuhs lesson)
 export function CompanyCard({ company, onSaved, compact = false }: { company: AdminCompany; onSaved: (c: AdminCompany) => void; compact?: boolean }) {
@@ -46,10 +73,12 @@ export function CompanyCard({ company, onSaved, compact = false }: { company: Ad
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="text-[10px] font-extrabold uppercase tracking-widest text-ink-soft">
           Company · {company.openPostingsTotal} open postings · {company.openPostingsNy} NY · {company.inCohort ? 'in cohort' : 'NOT scored (<5 postings)'}
+          {company.enrichment?.nameSource ? ` · name from ${company.enrichment.nameSource.replace(/_/g, ' ')}` : ' · name guessed from slug'}
         </div>
         <div className={`tag ${company.verifiedAt ? 'bg-ok border-ok text-white' : 'tag-accent'}`}>{company.verifiedAt ? 'verified' : 'unverified'}</div>
       </div>
-      <div className="mt-3 grid gap-2 md:grid-cols-[2fr_1fr_1fr_4rem]">
+      <div className="mt-3 grid gap-2 md:grid-cols-[3rem_2fr_1fr_1fr_4rem]">
+        <AdminLogo company={company} />
         <input value={name} onChange={(e) => setName(e.target.value)} className="block h-11 px-3 text-lg font-black" aria-label="Display name" />
         <select value={sector} onChange={(e) => setSector(e.target.value)} className="block h-11 px-2 font-bold" aria-label="Sector">
           <option value="">sector…</option>

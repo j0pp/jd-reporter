@@ -32,6 +32,9 @@ export interface BoardAdapter {
   hostPatterns: RegExp[];
   matchUrl(url: URL): UrlMatch | null;
   boardUrl(slug: string): string;
+  // the public html page for the board; its meta tags carry the company name and logo
+  boardPageUrl(slug: string): string;
+  parseIdentity(html: string, slug: string): { name: string | null; logoUrl: string | null };
   // pure: vendor json -> RawPosting[]; fetchBoard is this plus http
   normalizeBoard(json: unknown): RawPosting[];
   fetchBoard(slug: string, ctx: FetchCtx, opts?: BoardFetchOptions): Promise<BoardFetchResult>;

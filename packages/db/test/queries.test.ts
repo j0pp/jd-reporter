@@ -4,10 +4,8 @@ import { createLocalDb, migrateLocalDb, type LocalDb } from '../src/client-local
 import {
   applyBoardDiff,
   claimQueuedSubmissions,
-  confirmDetectedFindings,
   ensureBoard,
   markBoardCrawled,
-  queueConfirmedForReview,
   recomputeCompanyRollups,
   reconcileFindings,
   transitionFinding,
@@ -22,7 +20,7 @@ beforeEach(async () => {
   await migrateLocalDb(db);
 });
 
-const covered = { nyc: 'covered', nys: 'covered', locClass: 'nyc_strict', multiCity: false, remoteUs: false, reasons: [], confidence: 0.9 };
+const covered = { coverage: 'covered', locClass: 'nyc_strict', multiCity: false, remoteUs: false, reasons: [], confidence: 0.9 };
 
 function posting(externalId: string, method: string, sha = `sha-${externalId}-${method}`, rawKey = 'r2/board.json.gz'): ClassifiedPostingInput {
   return {
@@ -39,7 +37,7 @@ function posting(externalId: string, method: string, sha = `sha-${externalId}-${
     contentSha256: sha,
     rawKey,
     pageKey: null,
-    jurisdiction: covered,
+    coverage: covered,
     range: method === 'text_range' ? { method, min: 100000, max: 120000, source: 'ats_api', confidence: 0.9, evidenceSpan: '$100,000 - $120,000' } : { method, source: 'ats_api', confidence: 0.9 },
     classifierVersion: 'v1',
     needsDetail: false,
@@ -127,15 +125,16 @@ describe('finding state machine', () => {
     return { board, ctx, c };
   }
 
-  it('creates detected findings only for covered non-disclosed postings', async () => {
+  it('queues findings for review on the first crawl, only for covered non-disclosed postings', async () => {
     const { c } = await setup();
     expect(c.created).toBe(2);
     const fs = await db.select().from(findings);
     expect(fs.map((f) => [f.type, f.status]).sort()).toEqual([
-      ['missing_range', 'detected'],
-      ['open_ended_range', 'detected'],
+      ['missing_range', 'needs_review'],
+      ['open_ended_range', 'needs_review'],
     ]);
     expect(fs[0]!.firstRawKey).toBe('r2/board.json.gz');
+    expect(fs[0]!.reviewAt).not.toBeNull();
     expect(fs.find((f) => f.type === 'open_ended_range')!.reviewReasons).toContain('open_ended_range');
   });
 
@@ -147,7 +146,7 @@ describe('finding state machine', () => {
     const f1 = (await db.select().from(findings).where(eq(findings.postingId, p1.id)))[0]!;
 
     // publish f1 by hand (the admin path), then the posting gains a range
-    expect(await transitionFinding(db, { id: f1.id, from: 'detected', to: 'published', actor: 'jon' })).toBe(true);
+    expect(await transitionFinding(db, { id: f1.id, from: 'needs_review', to: 'published', actor: 'jon' })).toBe(true);
     let d = await applyBoardDiff(db, {
       ...ctx,
       seen: [posting('1', 'text_range', undefined, 'r2/board2.json.gz'), posting('2', 'text_range'), posting('3', 'text_range', undefined, 'r2/board2.json.gz')],
@@ -160,31 +159,31 @@ describe('finding state machine', () => {
     expect(after.find((f) => f.postingId === p1.id)!.fixedRawKey).toBe('r2/board2.json.gz');
     expect(after.find((f) => f.postingId === p3.id)!.status).toBe('withdrawn');
 
-    // the range disappears again: redetected with fresh evidence, not the old published row
+    // the range disappears again: back in the queue with fresh evidence, not the old published row
     d = await applyBoardDiff(db, { ...ctx, seen: [posting('1', 'none', 'sha-1-none-b', 'r2/board3.json.gz'), posting('2', 'text_range'), posting('3', 'text_range', undefined, 'r2/board2.json.gz')] });
     c = await reconcileFindings(db, d.touchedIds, { actor: 'system' });
     expect(c.redetected).toBe(1);
     const re = (await db.select().from(findings).where(eq(findings.postingId, p1.id)))[0]!;
-    expect(re.status).toBe('detected');
+    expect(re.status).toBe('needs_review');
     expect(re.firstRawKey).toBe('r2/board3.json.gz');
     expect(re.publishedAt).toBeNull();
 
     // publish again, then the posting vanishes
-    await transitionFinding(db, { id: re.id, from: 'detected', to: 'published', actor: 'jon' });
+    await transitionFinding(db, { id: re.id, from: 'needs_review', to: 'published', actor: 'jon' });
     d = await applyBoardDiff(db, { ...ctx, seen: [posting('2', 'text_range'), posting('3', 'text_range')] });
     c = await reconcileFindings(db, d.touchedIds, { actor: 'system' });
     expect(c.stale).toBe(1);
 
     // every transition left a review row
     const log = await db.select().from(reviews).where(eq(reviews.findingId, re.id));
-    expect(log.map((r) => r.toStatus)).toEqual(['published', 'fixed', 'detected', 'published', 'stale']);
+    expect(log.map((r) => r.toStatus)).toEqual(['published', 'fixed', 'needs_review', 'published', 'stale']);
     expect(board.id).toBeGreaterThan(0);
   });
 
   it('rejected stays rejected even when the posting still reads as none', async () => {
     const { ctx } = await setup();
     const f = (await db.select().from(findings))[0]!;
-    await transitionFinding(db, { id: f.id, from: 'detected', to: 'rejected', actor: 'jon', falsePositiveReason: 'parser_missed_format' });
+    await transitionFinding(db, { id: f.id, from: 'needs_review', to: 'rejected', actor: 'jon', falsePositiveReason: 'parser_missed_format' });
     const d = await applyBoardDiff(db, { ...ctx, seen: [posting('1', 'none', 'sha-1-none-c'), posting('2', 'text_range'), posting('3', 'open_ended', 'sha-3-b')] });
     await reconcileFindings(db, d.touchedIds, { actor: 'system' });
     expect((await db.select().from(findings).where(eq(findings.id, f.id)))[0]!.status).toBe('rejected');
@@ -193,23 +192,8 @@ describe('finding state machine', () => {
   it('conditional transitions refuse the wrong from-state', async () => {
     await setup();
     const f = (await db.select().from(findings))[0]!;
-    expect(await transitionFinding(db, { id: f.id, from: 'needs_review', to: 'published', actor: 'jon' })).toBe(false);
+    expect(await transitionFinding(db, { id: f.id, from: 'published', to: 'fixed', actor: 'jon' })).toBe(false);
     expect((await db.select().from(reviews)).length).toBe(0);
-  });
-
-  it('confirmation needs 20 hours and a later successful crawl of the board', async () => {
-    const { board } = await setup();
-    expect(await confirmDetectedFindings(db)).toBe(0);
-    const old = new Date(Date.now() - 30 * 3600_000).toISOString();
-    await db.update(findings).set({ detectedAt: old });
-    // board last ok before the 20 h mark: still no
-    await db.update(boards).set({ lastOkAt: new Date(Date.now() - 25 * 3600_000).toISOString() }).where(eq(boards.id, board.id));
-    expect(await confirmDetectedFindings(db)).toBe(0);
-    await db.update(boards).set({ lastOkAt: new Date().toISOString() }).where(eq(boards.id, board.id));
-    expect(await confirmDetectedFindings(db)).toBe(2);
-    expect(await queueConfirmedForReview(db)).toBe(2);
-    const statuses = (await db.select().from(findings)).map((f) => f.status);
-    expect(statuses).toEqual(['needs_review', 'needs_review']);
   });
 });
 
@@ -229,7 +213,7 @@ describe('rollups and the 5+ proxy', () => {
 
     await markBoardCrawled(db, board.id, { runId: 2, ok: true, openPostingsTotal: 40 });
     const f = (await db.select().from(findings))[0]!;
-    await transitionFinding(db, { id: f.id, from: 'detected', to: 'published', actor: 'jon' });
+    await transitionFinding(db, { id: f.id, from: 'needs_review', to: 'published', actor: 'jon' });
     await recomputeCompanyRollups(db, [board.companyId]);
     [c] = await db.select().from(companies);
     expect(c!.inCohort).toBe(true);

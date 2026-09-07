@@ -1,5 +1,6 @@
 import { stripHtml } from '../html.ts';
 import type { RangeResult, RawPosting } from '../types.ts';
+import { cleanName, metaContent, titleOf } from './identity.ts';
 import type { BoardAdapter, BoardFetchOptions, BoardFetchResult, FetchCtx, UrlMatch } from './types.ts';
 import { dedupeStrings } from './types.ts';
 import { arr, num, obj, str } from './util.ts';
@@ -75,6 +76,19 @@ export const workday: BoardAdapter = {
   boardUrl(slug) {
     const s = parseWorkdaySlug(slug);
     return `${base(s)}/${s.site}`;
+  },
+
+  boardPageUrl(slug) {
+    const s = parseWorkdaySlug(slug);
+    return `${base(s)}/${s.site}`;
+  },
+
+  // the page is js-rendered (empty title), but the tenant logo is served at {site}/assets/logo and og:image
+  // points at it. no name: the 50 hand-picked tenants get theirs in the verify card
+  parseIdentity(html, slug) {
+    const s = parseWorkdaySlug(slug);
+    const og = metaContent(html, 'og:image');
+    return { name: cleanName(titleOf(html), slug), logoUrl: og ?? `${base(s)}/${s.site}/assets/logo` };
   },
 
   normalizeBoard(json) {

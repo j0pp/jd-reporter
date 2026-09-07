@@ -10,7 +10,7 @@ import { FP_REASONS, type AdminCompany, type QueueGroup, type QueueItem } from '
 
 interface Queue {
   groups: QueueGroup[];
-  counts: { needsReview: number; detected: number; published: number };
+  counts: { needsReview: number; published: number };
 }
 
 // one finding per screen, keyboard first: p publish, r reject, s snooze, v verify company, j/k next/prev, l live
@@ -129,7 +129,7 @@ export function QueueTab({ onChanged }: { onChanged: () => void }) {
       <div className="block p-10 text-center">
         <p className="text-3xl font-black">Queue is empty.</p>
         <p className="mt-2 text-ink-soft">
-          {queue.counts.detected} findings are waiting for their second crawl. {queue.counts.published} are published.
+          Nothing is waiting for review. {queue.counts.published} findings are published.
         </p>
       </div>
     );
@@ -160,11 +160,6 @@ export function QueueTab({ onChanged }: { onChanged: () => void }) {
           <div className="block p-5 md:p-6">
             <div className="flex flex-wrap items-center gap-2 text-xs">
               <span className="tag tag-accent">{FINDING_LABEL[item.finding.type] ?? item.finding.type}</span>
-              {item.finding.jurisdictionCodes.map((c) => (
-                <span key={c} className="tag">
-                  {c.toUpperCase()}
-                </span>
-              ))}
               {item.finding.reviewReasons.map((r) => (
                 <span key={r} className="tag border-warn text-warn">
                   {r.replace(/_/g, ' ')}
@@ -181,7 +176,7 @@ export function QueueTab({ onChanged }: { onChanged: () => void }) {
               {item.posting.isOffsite ? ' · offsite posting' : ''}
             </div>
             <ul className="mt-3 space-y-1 text-sm">
-              {item.posting.jurisdiction.reasons.map((r) => (
+              {item.posting.coverage.reasons.map((r) => (
                 <li key={r}>· {r}</li>
               ))}
               <li>
@@ -189,7 +184,7 @@ export function QueueTab({ onChanged }: { onChanged: () => void }) {
                 {item.finding.rangeAtDetection.confidence}); current read: <strong>{item.posting.range.method.replace(/_/g, ' ')}</strong>
               </li>
               <li>
-                · detected {fmtDateTime(item.finding.detectedAt)}, confirmed {fmtDateTime(item.finding.confirmedAt)}
+                · detected {fmtDateTime(item.finding.detectedAt)}
               </li>
             </ul>
             {item.finding.evidenceSpan ? <blockquote className="mt-4 border-l-8 border-accent bg-paper p-4 font-mono text-sm">…{item.finding.evidenceSpan}…</blockquote> : null}

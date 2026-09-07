@@ -1,8 +1,8 @@
 import { getAdapter } from '@jdr/core';
 import type { Db } from '@jdr/db';
-import { boards, companies, crawlRuns, findings, jurisdictions, postings } from '@jdr/db/schema';
+import { boards, companies, crawlRuns, findings, postings } from '@jdr/db/schema';
 import { and, desc, eq, inArray, isNull, sql } from 'drizzle-orm';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { BlobStore } from './blobs.ts';
 import type { Config } from './env.ts';
@@ -14,13 +14,13 @@ export interface SiteFinding {
   id: number;
   companySlug: string;
   companyName: string;
+  companyLogo: string | null;
   postingId: number;
   externalId: string;
   title: string;
   url: string;
   locations: string[];
   locClass: string;
-  jurisdictionCodes: string[];
   type: string;
   evidenceSpan: string | null;
   rangeAtDetection: { method: string; min?: number; max?: number; evidenceSpan?: string; source: string };
@@ -36,6 +36,7 @@ export interface SiteFinding {
 export interface SiteCompany {
   slug: string;
   displayName: string;
+  logo: string | null;
   sector: string | null;
   hqCity: string | null;
   hqState: string | null;
@@ -70,6 +71,26 @@ export async function exportSiteData(db: Db, blobs: BlobStore, cfg: Config, opts
     .orderBy(desc(findings.publishedAt));
 
   const companyById = new Map(allCompanies.map((c) => [c.id, c]));
+
+  // logos ship as static assets so the public site never needs a backend for them
+  const logosDir = join(cfg.repoRoot, 'apps', 'web', 'public', 'logos');
+  mkdirSync(logosDir, { recursive: true });
+  const logoPath = new Map<number, string>();
+  let logosCopied = 0;
+  for (const c of allCompanies) {
+    if (!c.logoKey || c.openPostingsNy === 0) continue;
+    const ext = c.logoKey.split('.').pop() ?? 'png';
+    const file = `${c.slug}.${ext}`;
+    const dest = join(logosDir, file);
+    if (!existsSync(dest)) {
+      const bytes = await blobs.getBytes(c.logoKey).catch(() => null);
+      if (!bytes) continue;
+      writeFileSync(dest, bytes);
+      logosCopied += 1;
+    }
+    logoPath.set(c.id, `/logos/${file}`);
+  }
+
   const currentByCompany = new Map<number, number>();
   const siteFindings: SiteFinding[] = [];
   for (const { f, p } of rows) {
@@ -80,13 +101,13 @@ export async function exportSiteData(db: Db, blobs: BlobStore, cfg: Config, opts
       id: f.id,
       companySlug: c.slug,
       companyName: c.displayName,
+      companyLogo: logoPath.get(c.id) ?? null,
       postingId: p.id,
       externalId: p.externalId,
       title: p.title,
       url: p.canonicalUrl,
       locations: p.locations,
       locClass: p.locClass,
-      jurisdictionCodes: f.jurisdictionCodes,
       type: f.type,
       evidenceSpan: f.evidenceSpan,
       rangeAtDetection: f.rangeAtDetection,
@@ -96,7 +117,7 @@ export async function exportSiteData(db: Db, blobs: BlobStore, cfg: Config, opts
       firstRawKey: f.firstRawKey,
       firstPageKey: f.firstPageKey,
       classifierVersion: f.classifierVersion,
-      reasons: p.jurisdiction.reasons,
+      reasons: p.coverage.reasons,
     });
   }
 
@@ -105,6 +126,7 @@ export async function exportSiteData(db: Db, blobs: BlobStore, cfg: Config, opts
     .map((c) => ({
       slug: c.slug,
       displayName: c.displayName,
+      logo: logoPath.get(c.id) ?? null,
       sector: c.sector,
       hqCity: c.hqCity,
       hqState: c.hqState,
@@ -133,7 +155,6 @@ export async function exportSiteData(db: Db, blobs: BlobStore, cfg: Config, opts
     .from(postings)
     .where(and(isNull(postings.removedAt), inArray(postings.locClass, NY as never), eq(postings.isEvergreen, false)));
   const [lastCrawl] = await db.select().from(crawlRuns).where(eq(crawlRuns.kind, 'crawl')).orderBy(desc(crawlRuns.startedAt)).limit(1);
-  const laws = await db.select().from(jurisdictions);
 
   const site = {
     generatedAt: new Date().toISOString(),
@@ -145,7 +166,6 @@ export async function exportSiteData(db: Db, blobs: BlobStore, cfg: Config, opts
       currentFindings: siteFindings.length,
       companiesOnLeaderboard: leaderboard.length,
     },
-    jurisdictions: laws,
   };
 
   writeFileSync(join(outDir, 'site.json'), JSON.stringify(site, null, 1));
@@ -154,8 +174,9 @@ export async function exportSiteData(db: Db, blobs: BlobStore, cfg: Config, opts
   writeFileSync(join(outDir, 'findings.json'), JSON.stringify(siteFindings));
   writeFileSync(
     join(outDir, 'search-index.json'),
-    JSON.stringify(siteCompanies.map((c) => ({ slug: c.slug, name: c.displayName, sector: c.sector, findings: c.currentFindings, ny: c.openPostingsNy }))),
+    JSON.stringify(siteCompanies.map((c) => ({ slug: c.slug, name: c.displayName, logo: c.logo, sector: c.sector, findings: c.currentFindings, ny: c.openPostingsNy }))),
   );
+  opts.log(`export: ${logoPath.size} companies with logos, ${logosCopied} newly copied`);
 
   // per-finding evidence files: the posting's own raw record as we read it at detection, served statically
   const evidenceDir = join(cfg.repoRoot, 'apps', 'web', 'public', 'evidence');
@@ -179,9 +200,9 @@ export async function exportSiteData(db: Db, blobs: BlobStore, cfg: Config, opts
 
   // public dataset (cc by): what is published, nothing more
   const csv = [
-    ['company', 'company_slug', 'title', 'locations', 'jurisdictions', 'finding_type', 'evidence', 'detected_at', 'published_at', 'posting_url', 'wayback_url'].join(','),
+    ['company', 'company_slug', 'title', 'locations', 'finding_type', 'evidence', 'detected_at', 'published_at', 'posting_url', 'wayback_url'].join(','),
     ...siteFindings.map((f) =>
-      [f.companyName, f.companySlug, f.title, f.locations.join('; '), f.jurisdictionCodes.join('; '), f.type, f.evidenceSpan ?? '', f.detectedAt, f.publishedAt ?? '', f.url, f.waybackUrl ?? '']
+      [f.companyName, f.companySlug, f.title, f.locations.join('; '), f.type, f.evidenceSpan ?? '', f.detectedAt, f.publishedAt ?? '', f.url, f.waybackUrl ?? '']
         .map((v) => `"${String(v).replace(/"/g, '""')}"`)
         .join(','),
     ),

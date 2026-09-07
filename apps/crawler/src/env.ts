@@ -19,8 +19,6 @@ export interface Config {
   waybackAccessKey: string;
   waybackSecretKey: string;
   userAgent: string;
-  // committed seed data: data/seed (board lists), data/sectors (taxonomy + tags), data/nyc-employers.csv
-  dataDir: string;
   repoRoot: string;
 }
 
@@ -42,7 +40,6 @@ export function loadConfig(): Config {
     waybackAccessKey: e.WAYBACK_ACCESS_KEY || '',
     waybackSecretKey: e.WAYBACK_SECRET_KEY || '',
     userAgent: e.USER_AGENT || 'jd-reporter/0.1 (research crawler; see repository for contact)',
-    dataDir: resolve(ROOT, 'data'),
     repoRoot: ROOT,
   };
 }

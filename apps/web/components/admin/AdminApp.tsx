@@ -62,10 +62,9 @@ export function AdminApp() {
       </div>
 
       {stats ? (
-        <div className="mt-6 grid gap-3 md:grid-cols-6">
+        <div className="mt-6 grid gap-3 md:grid-cols-5">
           {[
             ['queue', stats.findings.needs_review ?? 0],
-            ['detected', stats.findings.detected ?? 0],
             ['published', stats.findings.published ?? 0],
             ['rejected', stats.findings.rejected ?? 0],
             ['boards in error', stats.boards.errors ?? 0],

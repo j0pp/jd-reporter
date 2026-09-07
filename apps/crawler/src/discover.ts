@@ -1,12 +1,11 @@
 import { classifyLocation } from '@jdr/core';
 import { ensureBoard, findBoard, type Db } from '@jdr/db';
-import { boards } from '@jdr/db/schema';
-import { eq } from 'drizzle-orm';
 import { gunzipSync } from 'node:zlib';
 import type { Config } from './env.ts';
 
 // discovery never probes blind slug lists. feashliaa already fetched every posting with its location, so a
 // weekly diff of their dump against our boards costs zero ats requests. their data is cc by-nc 4.0.
+// the first run against an empty db is the bootstrap; every board found lands active, workday included
 const DATA_REPO = 'https://raw.githubusercontent.com/Feashliaa/job-board-data/main';
 const VENDORS: Record<string, string> = { greenhouse: 'greenhouse', lever: 'lever', ashby: 'ashby', workday: 'workday' };
 const NY = new Set(['nyc_strict', 'ny_bare', 'ny_state']);
@@ -19,7 +18,7 @@ interface DumpJob {
   is_recruiter?: boolean;
 }
 
-export async function discover(db: Db, cfg: Config, opts: { activateWorkday: boolean; dryRun: boolean; log: (m: string) => void }) {
+export async function discover(db: Db, cfg: Config, opts: { dryRun: boolean; log: (m: string) => void }) {
   const headers = { 'user-agent': cfg.userAgent };
   const manifest = (await (await fetch(`${DATA_REPO}/data/chunks/jobs_manifest.json`, { headers })).json()) as { chunks: string[] };
   opts.log(`discover: ${manifest.chunks.length} chunks in the feashliaa manifest`);
@@ -58,14 +57,13 @@ export async function discover(db: Db, cfg: Config, opts: { activateWorkday: boo
     }
     added += 1;
     if (opts.dryRun) continue;
-    const { board } = await ensureBoard(db, {
+    await ensureBoard(db, {
       vendor: c.vendor as never,
       slug: c.slug,
       discoveredVia: 'feashliaa',
       isStaffingFirm: c.recruiter,
       cohortReason: c.ny >= 5 ? 'threshold: 5+ nyc postings (dump)' : null,
     });
-    if (c.vendor === 'workday' && !opts.activateWorkday) await db.update(boards).set({ status: 'inactive' }).where(eq(boards.id, board.id));
   }
   opts.log(`discover: ${known} boards already known, ${added} new boards with ny postings${opts.dryRun ? ' (dry run, nothing written)' : ''}`);
   return { added, known };

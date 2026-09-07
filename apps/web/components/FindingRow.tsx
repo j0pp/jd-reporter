@@ -1,10 +1,16 @@
 import Link from 'next/link';
 import type { SiteFinding } from '@/lib/data';
 import { FINDING_LABEL, fmtDate } from '@/lib/format';
+import { Logo } from './Logo';
 
 export function FindingRow({ f, showCompany = false }: { f: SiteFinding; showCompany?: boolean }) {
   return (
-    <li className="grid gap-4 border-b-4 border-rule px-6 py-6 last:border-b-0 md:grid-cols-[1fr_auto] md:items-center">
+    <li className={`grid gap-4 border-b-4 border-rule px-6 py-6 last:border-b-0 md:items-center ${showCompany ? 'md:grid-cols-[4.5rem_1fr_auto]' : 'md:grid-cols-[1fr_auto]'}`}>
+      {showCompany ? (
+        <Link href={`/c/${f.companySlug}`} aria-label={f.companyName}>
+          <Logo src={f.companyLogo} name={f.companyName} size={72} />
+        </Link>
+      ) : null}
       <div>
         {showCompany ? (
           <Link href={`/c/${f.companySlug}`} className="text-xs font-extrabold uppercase tracking-widest text-ink-soft hover:text-accent">
@@ -18,8 +24,6 @@ export function FindingRow({ f, showCompany = false }: { f: SiteFinding; showCom
         </h3>
         <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
           <span className="tag tag-accent">{FINDING_LABEL[f.type] ?? f.type}</span>
-          {f.jurisdictionCodes.includes('nyc') ? <span className="tag">NYC</span> : null}
-          {f.jurisdictionCodes.includes('nys') ? <span className="tag">NYS</span> : null}
           <span className="font-semibold text-ink-soft">{f.locations.join(' · ')}</span>
         </div>
       </div>

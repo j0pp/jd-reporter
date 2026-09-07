@@ -37,7 +37,6 @@ adminRoutes.get('/queue', async (c) => {
   const [counts] = await db
     .select({
       needsReview: sql<number>`sum(case when ${findings.status} = 'needs_review' then 1 else 0 end)`,
-      detected: sql<number>`sum(case when ${findings.status} = 'detected' then 1 else 0 end)`,
       published: sql<number>`sum(case when ${findings.status} = 'published' then 1 else 0 end)`,
     })
     .from(findings);
@@ -107,9 +106,13 @@ adminRoutes.get('/findings/:id/history', async (c) => {
 // zero cpu here, which matters on the free plan
 adminRoutes.get('/blob', async (c) => {
   const key = c.req.query('key');
-  if (!key || !/^(boards|postings|pages)\//.test(key)) return c.json({ error: 'bad key' }, 400);
+  if (!key || !/^(boards|postings|pages|logos)\//.test(key)) return c.json({ error: 'bad key' }, 400);
   const obj = await c.env.BLOBS.get(key);
   if (!obj) return c.json({ error: 'blob not found' }, 404);
+  // logos are stored as raw image bytes; everything else is gzipped text
+  if (key.startsWith('logos/')) {
+    return new Response(obj.body, { headers: { 'content-type': obj.httpMetadata?.contentType ?? 'image/png', 'cache-control': 'private, max-age=86400' } });
+  }
   const headers = new Headers({ 'content-type': key.endsWith('.html.gz') ? 'text/html; charset=utf-8' : 'application/json; charset=utf-8', 'cache-control': 'private, max-age=3600' });
   headers.set('content-encoding', 'gzip');
   return new Response(obj.body, { headers });

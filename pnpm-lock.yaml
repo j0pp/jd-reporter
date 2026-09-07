@@ -66,9 +66,6 @@ importers:
       commander:
         specifier: ^15.0.0
         version: 15.0.0
-      csv-parse:
-        specifier: ^7.0.2
-        version: 7.0.2
       drizzle-orm:
         specifier: ^0.45.2
         version: 0.45.2(@cloudflare/workers-types@5.20260905.1)(@libsql/client@0.18.0)
@@ -1718,9 +1715,6 @@ packages:
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
-  csv-parse@7.0.2:
-    resolution: {integrity: sha512-uKZghv9UmPkMVLYy//KZ9HFAIJsl7wkhoEdIL0+rhuSY9pZQlhaeGEDPIe+/w7eh81MOql8Q/9+inAGWG6ZHYA==}
-
   detect-libc@2.0.2:
     resolution: {integrity: sha512-UX6sGumvvqSaXgdKGUsgZWqcUyIXZ/vZTrlRT/iobiKhGL0zL4d3osHj3uqllWJK+i+sixDS/3COVEOFbupFyw==}
     engines: {node: '>=8'}
@@ -3327,8 +3321,6 @@ snapshots:
   cookie@1.1.1: {}
 
   csstype@3.2.3: {}
-
-  csv-parse@7.0.2: {}
 
   detect-libc@2.0.2: {}
 

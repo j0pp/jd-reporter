@@ -11,6 +11,11 @@ on:
         description: boards per vendor (blank = all)
         required: false
         default: ''
+      task:
+        description: crawl the boards, or only enrich names + logos from vendor pages
+        type: choice
+        options: [crawl, enrich]
+        default: crawl
 
 concurrency:
   group: crawl
@@ -42,7 +47,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: crawl ${{ matrix.vendor }}
+        if: ${{ (inputs.task || 'crawl') == 'crawl' }}
         run: pnpm --filter @jdr/crawler cli crawl --vendor ${{ matrix.vendor }} --max-minutes 270 ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+      - name: enrich ${{ matrix.vendor }}
+        if: ${{ inputs.task == 'enrich' }}
+        run: pnpm --filter @jdr/crawler cli enrich --vendor ${{ matrix.vendor }} ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
 
   finalize:
     needs: crawl
@@ -67,6 +76,7 @@ jobs:
       - name: build static site
         run: pnpm --filter @jdr/web build
         env:
+          NEXT_PUBLIC_SITE_ORIGIN: ${{ vars.SITE_ORIGIN }}
           NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
           NEXT_PUBLIC_DISPUTE_EMAIL: ${{ vars.DISPUTE_EMAIL }}
       - name: deploy worker + assets

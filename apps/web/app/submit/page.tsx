@@ -9,7 +9,7 @@ export default function SubmitPage() {
       <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">Seen a New York posting with no pay range?</h1>
       <p className="mt-6 max-w-3xl text-xl leading-relaxed text-ink-soft">
         Paste the posting, or the employer&apos;s whole job board, and we will read it ourselves. You get a quick answer now and a status page you can come back to.
-        Nothing you submit is published until we have read it twice and a person has looked.
+        Nothing you submit is published until a person has looked.
       </p>
       <div className="mt-10 max-w-4xl">
         <SubmitForm />

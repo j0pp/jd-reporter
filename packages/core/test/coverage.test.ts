@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { classifyJurisdiction, classifyLocation, splitLocations } from '../src/jurisdiction/index.ts';
+import { classifyCoverage, classifyLocation, splitLocations } from '../src/coverage/index.ts';
 
 describe('location tiers (ported from nyc.sql)', () => {
   it.each([
@@ -46,13 +46,12 @@ describe('location tiers (ported from nyc.sql)', () => {
   });
 });
 
-describe('jurisdiction: three answers, not two', () => {
-  const j = (locations: string[], isRemote: boolean | null = null, text?: string) => classifyJurisdiction({ locations, isRemote, text });
+describe('coverage: three answers, not two', () => {
+  const j = (locations: string[], isRemote: boolean | null = null, text?: string) => classifyCoverage({ locations, isRemote, text });
 
-  it('an unambiguous city string covers both laws', () => {
+  it('an unambiguous city string is covered', () => {
     const r = j(['New York, NY']);
-    expect(r.nyc).toBe('covered');
-    expect(r.nys).toBe('covered');
+    expect(r.coverage).toBe('covered');
     expect(r.locClass).toBe('nyc_strict');
     expect(r.multiCity).toBe(false);
     expect(r.confidence).toBeGreaterThanOrEqual(0.9);
@@ -60,20 +59,20 @@ describe('jurisdiction: three answers, not two', () => {
 
   it('bare "New York" is covered at lower confidence', () => {
     const r = j(['New York']);
-    expect(r.nyc).toBe('covered');
+    expect(r.coverage).toBe('covered');
     expect(r.confidence).toBeLessThan(0.7);
     expect(r.reasons.join(' ')).toMatch(/bare/);
   });
 
-  it('upstate is nys only', () => {
+  it('upstate is covered too, and keeps its location class', () => {
     const r = j(['Buffalo, New York']);
-    expect(r.nyc).toBe('no');
-    expect(r.nys).toBe('covered');
+    expect(r.coverage).toBe('covered');
+    expect(r.locClass).toBe('ny_state');
   });
 
   it('multi-city with a non-ny city stays covered but is flagged for review', () => {
     const r = j(['New York City; Austin; Boston; Chicago; San Francisco']);
-    expect(r.nyc).toBe('covered');
+    expect(r.coverage).toBe('covered');
     expect(r.multiCity).toBe(true);
     expect(r.reasons.join(' ')).toMatch(/also lists Austin/);
     expect(r.confidence).toBeLessThan(0.9);
@@ -81,37 +80,36 @@ describe('jurisdiction: three answers, not two', () => {
 
   it('coreweave: preferred nj but also new york is multi-city', () => {
     const r = j(['Livingston, NJ', 'New York, NY']);
-    expect(r.nyc).toBe('covered');
+    expect(r.coverage).toBe('covered');
     expect(r.multiCity).toBe(true);
   });
 
   it('remote us is not assessed until hq is known', () => {
-    expect(j(['Remote - US']).nyc).toBe('not_assessed');
-    expect(j(['Remote'], true).nyc).toBe('not_assessed');
-    expect(j([], true).nyc).toBe('not_assessed');
+    expect(j(['Remote - US']).coverage).toBe('not_assessed');
+    expect(j(['Remote'], true).coverage).toBe('not_assessed');
+    expect(j([], true).coverage).toBe('not_assessed');
   });
 
   it('remote plus an ny office is covered by the office', () => {
     const r = j(['New York, NY', 'Remote']);
-    expect(r.nyc).toBe('covered');
+    expect(r.coverage).toBe('covered');
     expect(r.multiCity).toBe(false);
   });
 
   it('the other manhattans and brooklyns are not covered', () => {
-    expect(j(['Manhattan, KS']).nyc).toBe('no');
-    expect(j(['Brooklyn Park, MN']).nys).toBe('no');
+    expect(j(['Manhattan, KS']).coverage).toBe('no');
+    expect(j(['Brooklyn Park, MN']).coverage).toBe('no');
   });
 
   it('description text excluding new york downgrades to possible', () => {
     const r = j(['New York, NY', 'Denver, CO'], null, 'This role cannot be performed in New York.');
-    expect(r.nyc).toBe('possible');
-    expect(r.nys).toBe('possible');
+    expect(r.coverage).toBe('possible');
     expect(r.reasons.join(' ')).toMatch(/cannot be performed/);
   });
 
   it('no location at all is no, at low confidence', () => {
     const r = j([]);
-    expect(r.nyc).toBe('no');
+    expect(r.coverage).toBe('no');
     expect(r.confidence).toBeLessThan(0.5);
   });
 });

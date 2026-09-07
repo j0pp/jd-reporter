@@ -1,5 +1,6 @@
 import { stripHtml } from '../html.ts';
 import type { RangeResult, RawPosting, StructuredComp } from '../types.ts';
+import { cleanName, metaContent, titleOf } from './identity.ts';
 import type { BoardAdapter, BoardFetchResult, FetchCtx, UrlMatch } from './types.ts';
 import { dedupeStrings } from './types.ts';
 import { arr, num, obj, str } from './util.ts';
@@ -70,6 +71,17 @@ export const greenhouse: BoardAdapter = {
 
   boardUrl(slug) {
     return `https://job-boards.greenhouse.io/${slug}`;
+  },
+
+  boardPageUrl(slug) {
+    return `https://job-boards.greenhouse.io/${slug}`;
+  },
+
+  // og:title is the board name ("SEO (Sponsors for Educational Opportunity)"), og:image the logo
+  parseIdentity(html, slug) {
+    const name = cleanName(metaContent(html, 'og:title'), slug) ?? cleanName(titleOf(html), slug);
+    const logoUrl = metaContent(html, 'og:image') ?? /<img[^>]+class=["'][^"']*\blogo\b[^"']*["'][^>]*src=["']([^"']+)["']/i.exec(html)?.[1] ?? null;
+    return { name, logoUrl };
   },
 
   normalizeBoard(json) {

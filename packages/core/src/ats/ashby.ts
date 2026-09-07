@@ -1,5 +1,6 @@
 import { stripHtml } from '../html.ts';
 import type { RawPosting, StructuredComp } from '../types.ts';
+import { cleanName, metaContent, titleOf } from './identity.ts';
 import type { BoardAdapter, BoardFetchResult, FetchCtx, UrlMatch } from './types.ts';
 import { dedupeStrings } from './types.ts';
 import { arr, num, obj, str, UUID_RE } from './util.ts';
@@ -69,6 +70,18 @@ export const ashby: BoardAdapter = {
 
   boardUrl(slug) {
     return `https://jobs.ashbyhq.com/${slug}`;
+  },
+
+  boardPageUrl(slug) {
+    return `https://jobs.ashbyhq.com/${slug}`;
+  },
+
+  // <title> is "{name} Jobs"; og:image is the org logo
+  parseIdentity(html, slug) {
+    return {
+      name: cleanName(titleOf(html), slug) ?? cleanName(metaContent(html, 'og:title'), slug),
+      logoUrl: metaContent(html, 'og:image'),
+    };
   },
 
   normalizeBoard(json) {

@@ -4,7 +4,6 @@ export interface AdminFinding {
   companyId: number;
   type: string;
   status: string;
-  jurisdictionCodes: string[];
   reviewReasons: string[];
   firstRawKey: string | null;
   firstPageKey: string | null;
@@ -13,7 +12,6 @@ export interface AdminFinding {
   classifierVersion: string;
   waybackUrl: string | null;
   detectedAt: string;
-  confirmedAt: string | null;
   reviewAt: string | null;
 }
 
@@ -29,7 +27,7 @@ export interface AdminPosting {
   employmentType: string | null;
   rawKey: string | null;
   pageKey: string | null;
-  jurisdiction: { nyc: string; nys: string; reasons: string[]; confidence: number };
+  coverage: { coverage: string; reasons: string[]; confidence: number };
   range: { method: string; evidenceSpan?: string; min?: number; max?: number };
   board: { vendor: string; slug: string };
 }
@@ -44,6 +42,8 @@ export interface AdminCompany {
   isStaffingFirm: boolean;
   inCohort: boolean;
   verifiedAt: string | null;
+  logoKey: string | null;
+  enrichment: { identityAt?: string; nameSource?: string; logoUrl?: string | null } | null;
   openPostingsTotal: number;
   openPostingsNy: number;
   disclosedNy: number;

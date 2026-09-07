@@ -19,7 +19,7 @@ interface Fixture {
     isRemote: boolean | null;
     structuredComp: RawPosting['structuredComp'];
     text: string | null;
-    expected: { method: string; nyc: string; nys: string; locClass: string; multiCity: boolean; isOffsite: boolean };
+    expected: { method: string; coverage: string; locClass: string; multiCity: boolean; isOffsite: boolean };
   }[];
 }
 
@@ -62,10 +62,9 @@ describe('golden fixtures from the 48 probed boards', () => {
         const r = classifyPosting(fx.vendor, posting);
         const got = {
           method: r.range.method,
-          nyc: r.jurisdiction.nyc,
-          nys: r.jurisdiction.nys,
-          locClass: r.jurisdiction.locClass,
-          multiCity: r.jurisdiction.multiCity,
+          coverage: r.coverage.coverage,
+          locClass: r.coverage.locClass,
+          multiCity: r.coverage.multiCity,
           isOffsite: r.isOffsite,
         };
         expect(got, `${fx.vendor}:${fx.slug} ${c.externalId} "${c.title}"`).toEqual(c.expected);

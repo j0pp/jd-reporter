@@ -4,6 +4,7 @@ import { Combobox } from '@base-ui/react/combobox';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import type { SearchEntry } from '@/lib/data';
+import { Logo } from './Logo';
 
 // the whole company index ships as one small json; matching happens in the browser, no server
 export function SearchBox({ items, big = false }: { items: SearchEntry[]; big?: boolean }) {
@@ -51,8 +52,11 @@ export function SearchBox({ items, big = false }: { items: SearchEntry[]; big?: 
                   value={item}
                   className="flex cursor-pointer items-center justify-between gap-4 border-b-2 border-rule/20 px-5 py-4 last:border-b-0 data-highlighted:bg-ink data-highlighted:text-white"
                 >
-                  <span className="font-bold">{item.name}</span>
-                  <span className="num text-sm font-semibold opacity-70">
+                  <span className="flex min-w-0 items-center gap-3">
+                    <Logo src={item.logo} name={item.name} size={28} />
+                    <span className="truncate font-bold">{item.name}</span>
+                  </span>
+                  <span className="num shrink-0 text-sm font-semibold opacity-70">
                     {item.findings ? `${item.findings} current` : `${item.ny} NY postings`}
                   </span>
                 </Combobox.Item>

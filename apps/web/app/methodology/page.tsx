@@ -39,9 +39,9 @@ export default function Methodology() {
         they tried. Funding rounds, bonuses, stipends and tips are not pay, and the reader knows the difference.
       </p>
 
-      <h2>Nothing is published on the first read</h2>
+      <h2>Nothing is published without a person</h2>
       <p>
-        A posting that reads as non-disclosed is re-read at least 20 hours later. If it still reads the same, it goes into a review queue where a person looks at
+        A posting that reads as non-disclosed goes into a review queue where a person looks at
         the actual text, the employer&apos;s structured pay fields, the location string and the company name before it is published. Every one of those decisions
         is logged. If the person says no, the reason is recorded in a fixed list (the parser missed a format, the range lived on the employer&apos;s page, the money
         was tips, the location was Manhattan, Kansas) so the same mistake becomes a test rather than a repeat.

@@ -98,7 +98,7 @@ interface FixtureCase {
   isRemote: boolean | null;
   structuredComp: RawPosting['structuredComp'];
   text: string | null;
-  expected: { method: string; nyc: string; nys: string; locClass: string; multiCity: boolean; isOffsite: boolean };
+  expected: { method: string; coverage: string; locClass: string; multiCity: boolean; isOffsite: boolean };
 }
 
 function boards(): { vendor: AtsVendor; slug: string }[] {
@@ -142,7 +142,7 @@ async function main() {
     let detailCalls = 0;
     for (let p of postings) {
       let c = classifyPosting(vendor, p);
-      if (!isNySignal(c.jurisdiction) && !p.needsDetail) continue;
+      if (!isNySignal(c.coverage) && !p.needsDetail) continue;
       if (adapter.needsDetail(p, c.range)) {
         if (vendor === 'workday' && detailCalls >= WORKDAY_DETAIL_CAP) continue;
         try {
@@ -153,7 +153,7 @@ async function main() {
           if (!(e instanceof NotCached)) throw e;
           if (vendor === 'workday') continue; // no cached detail, nothing to classify
         }
-        if (!isNySignal(c.jurisdiction)) continue;
+        if (!isNySignal(c.coverage)) continue;
       }
       counts[c.range.method] = (counts[c.range.method] ?? 0) + 1;
       // keep text only where the text decided it; structured cases do not need it, and cap the boring ones
@@ -170,10 +170,9 @@ async function main() {
         text: decidedByText ? p.descriptionText : null,
         expected: {
           method: c.range.method,
-          nyc: c.jurisdiction.nyc,
-          nys: c.jurisdiction.nys,
-          locClass: c.jurisdiction.locClass,
-          multiCity: c.jurisdiction.multiCity,
+          coverage: c.coverage.coverage,
+          locClass: c.coverage.locClass,
+          multiCity: c.coverage.multiCity,
           isOffsite: c.isOffsite,
         },
       });
