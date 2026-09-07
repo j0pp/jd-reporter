@@ -1,0 +1,76 @@
+# the daily pipeline: four vendor crawls in parallel, then finalize, then rebuild and ship the static site.
+# one board failing never fails the job; a failed job never marks postings removed (see crawl budget notes).
+name: crawl
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # 06:00 utc, 02:00 new york
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: boards per vendor (blank = all)
+        required: false
+        default: ''
+
+concurrency:
+  group: crawl
+  cancel-in-progress: false
+
+env:
+  DB_MODE: d1
+  BLOB_MODE: r2
+  CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+  CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+  D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
+  R2_BUCKET: ${{ vars.R2_BUCKET || 'jd-reporter' }}
+  R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+  R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+  WAYBACK_ACCESS_KEY: ${{ secrets.WAYBACK_ACCESS_KEY }}
+  WAYBACK_SECRET_KEY: ${{ secrets.WAYBACK_SECRET_KEY }}
+  USER_AGENT: ${{ vars.USER_AGENT }}
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    if: ${{ vars.PIPELINE_ENABLED == 'true' }}
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        vendor: [greenhouse, lever, ashby, workday]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - name: crawl ${{ matrix.vendor }}
+        run: pnpm --filter @jdr/crawler cli crawl --vendor ${{ matrix.vendor }} --max-minutes 270 ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+
+  finalize:
+    needs: crawl
+    if: ${{ always() && vars.PIPELINE_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm --filter @jdr/crawler cli finalize --wayback-cap 100
+
+  publish:
+    needs: finalize
+    if: ${{ always() && vars.PIPELINE_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - name: export site data
+        run: pnpm --filter @jdr/crawler cli export-site-data
+      - name: build static site
+        run: pnpm --filter @jdr/web build
+        env:
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
+          NEXT_PUBLIC_DISPUTE_EMAIL: ${{ vars.DISPUTE_EMAIL }}
+      - name: deploy worker + assets
+        run: pnpm --filter @jdr/api exec wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}

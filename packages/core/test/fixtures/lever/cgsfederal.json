@@ -1,0 +1,145 @@
+{
+ "vendor": "lever",
+ "slug": "cgsfederal",
+ "cases": [
+  {
+   "externalId": "db7944a9-68ba-4062-bb9a-57f4bf8648d2",
+   "title": "Affirmative Civil Enforcement (ACE) Investigator",
+   "url": "https://jobs.lever.co/cgsfederal/db7944a9-68ba-4062-bb9a-57f4bf8648d2",
+   "locations": [
+    "New York, NY",
+    "Hybrid",
+    "Remote",
+    "Albany, NY"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 51435.3,
+     "max": 66131.1,
+     "currency": "USD",
+     "interval": "per-year-salary",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "5ee0100f-f3f1-4e87-912c-e93c62b20154",
+   "title": "Agile Coach",
+   "url": "https://jobs.lever.co/cgsfederal/5ee0100f-f3f1-4e87-912c-e93c62b20154",
+   "locations": [
+    "New York, NY",
+    "Hybrid",
+    "Remote",
+    "Albany, NY"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 81536,
+     "max": 110656,
+     "currency": "USD",
+     "interval": "per-year-salary",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "08fcbcc8-3405-4d6a-8b51-db560ad862ff",
+   "title": "ALS Lab Manager",
+   "url": "https://jobs.lever.co/cgsfederal/08fcbcc8-3405-4d6a-8b51-db560ad862ff",
+   "locations": [
+    "New York, NY",
+    "Hybrid",
+    "Remote",
+    "Albany, NY"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 102890.67,
+     "max": 139637.34,
+     "currency": "USD",
+     "interval": "per-year-salary",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "c7058898-dc18-4fbc-b2ef-1b99582099a6",
+   "title": "APEX Developer (Top Secret Clearance Required)",
+   "url": "https://jobs.lever.co/cgsfederal/c7058898-dc18-4fbc-b2ef-1b99582099a6",
+   "locations": [
+    "New York, NY",
+    "Hybrid",
+    "Remote",
+    "Albany, NY"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 140000,
+     "max": 190000,
+     "currency": "USD",
+     "interval": "per-year-salary",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "2e40713b-3a2a-4616-9802-7a665f66f16f",
+   "title": "Test",
+   "url": "https://jobs.lever.co/cgsfederal/2e40713b-3a2a-4616-9802-7a665f66f16f",
+   "locations": [
+    "Albany, NY"
+   ],
+   "isRemote": true,
+   "structuredComp": null,
+   "text": "",
+   "expected": {
+    "method": "none",
+    "nyc": "no",
+    "nys": "covered",
+    "locClass": "ny_state",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

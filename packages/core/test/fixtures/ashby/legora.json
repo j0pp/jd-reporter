@@ -1,0 +1,114 @@
+{
+ "vendor": "ashby",
+ "slug": "legora",
+ "cases": [
+  {
+   "externalId": "3f2e1bb4-2a6d-4ce6-8cb9-7cbde773d80c",
+   "title": "Account Executive Enterprise",
+   "url": "https://jobs.ashbyhq.com/legora/3f2e1bb4-2a6d-4ce6-8cb9-7cbde773d80c",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 272000,
+     "max": 320000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "OTE $272K – $320K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "57229d58-c70b-460c-8d3f-c80b58a2d0e7",
+   "title": "Legal Engineer",
+   "url": "https://jobs.ashbyhq.com/legora/57229d58-c70b-460c-8d3f-c80b58a2d0e7",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 225000,
+     "max": 325000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "OTE $225K – $325K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "d273cd79-055a-4ac3-a5e9-50d92d37f5b3",
+   "title": "Talent Acquisition Partner, GTM",
+   "url": "https://jobs.ashbyhq.com/legora/d273cd79-055a-4ac3-a5e9-50d92d37f5b3",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 135000,
+     "max": 220000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$135K – $220K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "7cbc3e2b-d191-4ddc-9801-9541f2622c65",
+   "title": "Legal Engineer - In-House ",
+   "url": "https://jobs.ashbyhq.com/legora/7cbc3e2b-d191-4ddc-9801-9541f2622c65",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 225000,
+     "max": 325000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "OTE $225K – $325K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

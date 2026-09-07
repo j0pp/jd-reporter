@@ -1,0 +1,114 @@
+{
+ "vendor": "lever",
+ "slug": "destinationknot",
+ "cases": [
+  {
+   "externalId": "c4dac259-4acc-4d08-b1dc-94fcaea7c7d7",
+   "title": "Appointment Coordinator | Booking Cruises",
+   "url": "https://jobs.lever.co/destinationknot/c4dac259-4acc-4d08-b1dc-94fcaea7c7d7",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 45000,
+     "max": 65000,
+     "currency": "USD",
+     "interval": "per-year-salary",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "9104a659-db4f-4bf9-b0aa-83b5e62b5c99",
+   "title": "Appointment Coordinator | Travel",
+   "url": "https://jobs.lever.co/destinationknot/9104a659-db4f-4bf9-b0aa-83b5e62b5c99",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 45000,
+     "max": 65000,
+     "currency": "USD",
+     "interval": "per-year-salary",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "a82cb50c-025e-4865-83e8-4d33ea11f7d3",
+   "title": "Customer Service – Booking Hotels | Work Online",
+   "url": "https://jobs.lever.co/destinationknot/a82cb50c-025e-4865-83e8-4d33ea11f7d3",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 40000,
+     "max": 70000,
+     "currency": "USD",
+     "interval": "per-year-salary",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "aefffc67-abbc-4eab-8ecf-5229d1dabd8b",
+   "title": "Customer Service – Booking Hotels | Work Online",
+   "url": "https://jobs.lever.co/destinationknot/aefffc67-abbc-4eab-8ecf-5229d1dabd8b",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 40000,
+     "max": 70000,
+     "currency": "USD",
+     "interval": "per-year-salary",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

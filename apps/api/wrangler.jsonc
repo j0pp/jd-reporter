@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jd-reporter",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  // the static site and the api ship as one worker version; only /api/* runs code
+  "assets": {
+    "directory": "../web/out",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jd-reporter",
+      // wrangler d1 create jd-reporter, then paste the id here
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "../../packages/db/migrations"
+    }
+  ],
+  "r2_buckets": [{ "binding": "BLOBS", "bucket_name": "jd-reporter" }],
+  "vars": {
+    // set with `wrangler secret put`: ADMIN_TOKEN, TURNSTILE_SECRET, GITHUB_TOKEN, IP_SALT
+    // optional: CF_ACCESS_TEAM_DOMAIN + CF_ACCESS_AUD to accept cloudflare access instead of the bearer token
+    "GITHUB_REPO": "",
+    "PUBLIC_ORIGIN": "http://localhost:8787"
+  },
+  "observability": { "enabled": true }
+}

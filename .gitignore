@@ -1,0 +1,18 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# local dev state
+.local/
+apps/web/out/
+apps/web/.next/
+apps/web/data/*.json
+apps/web/public/evidence/
+apps/web/public/data/
+apps/web/next-env.d.ts
+.wrangler/
+.dev.vars
+*.tsbuildinfo

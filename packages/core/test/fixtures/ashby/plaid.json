@@ -1,0 +1,121 @@
+{
+ "vendor": "ashby",
+ "slug": "plaid",
+ "cases": [
+  {
+   "externalId": "ce3b3add-47d9-402d-a31d-16ffd1d0adb4",
+   "title": "Senior Data Engineer - Data Engineering",
+   "url": "https://jobs.ashbyhq.com/plaid/ce3b3add-47d9-402d-a31d-16ffd1d0adb4",
+   "locations": [
+    "San Francisco HQ",
+    "Seattle Office",
+    "New York City Office"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 190800,
+     "max": 238800,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$190.8K – $238.8K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "453966dc-6854-421d-8cac-0eee80cf2048",
+   "title": "Strategic Finance Lead, Product & Engineering",
+   "url": "https://jobs.ashbyhq.com/plaid/453966dc-6854-421d-8cac-0eee80cf2048",
+   "locations": [
+    "San Francisco HQ",
+    "New York City Office"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 182000,
+     "max": 265000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$182K – $265K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "8b81429d-f0e8-4b84-9f71-d25405e63d71",
+   "title": "Staff Product Manager - AI Foundations",
+   "url": "https://jobs.ashbyhq.com/plaid/8b81429d-f0e8-4b84-9f71-d25405e63d71",
+   "locations": [
+    "San Francisco HQ",
+    "New York City Office"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 207600,
+     "max": 339600,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "Target Base Salary $207.6K – $339.6K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "b9a8a319-ee80-4e91-95d8-4e5d3ca1336a",
+   "title": "Account Executive - Fintech Named",
+   "url": "https://jobs.ashbyhq.com/plaid/b9a8a319-ee80-4e91-95d8-4e5d3ca1336a",
+   "locations": [
+    "New York City Office",
+    "Seattle Office",
+    "Raleigh Office",
+    "San Francisco HQ"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 285108,
+     "max": 330000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "The OTE for this position ranges from $285,108 – $330,000"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  }
+ ]
+}

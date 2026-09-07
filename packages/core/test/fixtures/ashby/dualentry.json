@@ -1,0 +1,114 @@
+{
+ "vendor": "ashby",
+ "slug": "dualentry",
+ "cases": [
+  {
+   "externalId": "afd650e2-9865-45c8-9bf0-2442e8054bbb",
+   "title": "Senior Recruiter (NYC)",
+   "url": "https://jobs.ashbyhq.com/dualentry/afd650e2-9865-45c8-9bf0-2442e8054bbb",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 130000,
+     "max": 200000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$130K – $200K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "aa653edb-acbf-4370-ab0f-58f3b4024c22",
+   "title": "Head of Product Design",
+   "url": "https://jobs.ashbyhq.com/dualentry/aa653edb-acbf-4370-ab0f-58f3b4024c22",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 180000,
+     "max": 275000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$180K – $275K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "3bce47c8-3f3a-4148-a448-c408516beb32",
+   "title": "Chief of Staff (Office of the CEO)",
+   "url": "https://jobs.ashbyhq.com/dualentry/3bce47c8-3f3a-4148-a448-c408516beb32",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 120000,
+     "max": 175000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$120K – $175K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "c41cc85f-9f1f-47e8-8311-8a198212dc9f",
+   "title": "Head of Marketing",
+   "url": "https://jobs.ashbyhq.com/dualentry/c41cc85f-9f1f-47e8-8311-8a198212dc9f",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 300000,
+     "max": 400000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$300K – $400K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

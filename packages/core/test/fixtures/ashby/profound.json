@@ -1,0 +1,258 @@
+{
+ "vendor": "ashby",
+ "slug": "profound",
+ "cases": [
+  {
+   "externalId": "40aeeeac-24fe-40b2-88d9-242a5ce9300b",
+   "title": "Member of Technical Staff, Frontend",
+   "url": "https://jobs.ashbyhq.com/profound/40aeeeac-24fe-40b2-88d9-242a5ce9300b",
+   "locations": [
+    "New York, New York",
+    "San Francisco, California",
+    "Buenos Aires, Argentina"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 140000,
+     "max": 230000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$140K – $230K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "9e241b8d-3f96-42ef-b24c-21157f4bf28a",
+   "title": "Account Executive, Enterprise ",
+   "url": "https://jobs.ashbyhq.com/profound/9e241b8d-3f96-42ef-b24c-21157f4bf28a",
+   "locations": [
+    "New York, New York",
+    "San Francisco, California",
+    "Singapore",
+    "London, England"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 100000,
+     "max": 150000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$100K – $150K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "ea59c604-3a7d-445a-8a37-23252e240031",
+   "title": "Member of Technical Staff, Data Engineer",
+   "url": "https://jobs.ashbyhq.com/profound/ea59c604-3a7d-445a-8a37-23252e240031",
+   "locations": [
+    "New York, New York"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 160000,
+     "max": 250000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$160K – $250K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "26f3cb11-c67a-4534-adc6-13e404a883f7",
+   "title": "Member of Technical Staff, Data Science",
+   "url": "https://jobs.ashbyhq.com/profound/26f3cb11-c67a-4534-adc6-13e404a883f7",
+   "locations": [
+    "New York, New York",
+    "San Francisco, California"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 140000,
+     "max": 230000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$140K – $230K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "4c29c22e-c6fa-4bde-97ed-79edd5a96cea",
+   "title": "Member of Technical Staff, Rust Agent Runtime",
+   "url": "https://jobs.ashbyhq.com/profound/4c29c22e-c6fa-4bde-97ed-79edd5a96cea",
+   "locations": [
+    "New York, New York"
+   ],
+   "isRemote": false,
+   "structuredComp": null,
+   "text": "Profound is the marketing platform for the age of AI search. The way brands reach people is being rewritten — AI models like ChatGPT, Perplexity, and Google AI Mode are now the answer layer between companies and their customers. We built the platform marketers use to understand, measure, and win in that world: the analytics, intelligence, and agent automation that turn AI search from a threat into a competitive advantage. We went from 0 to a $1B valuation in 18 months. Revenue grew 100x last year. Our customers include 15% of the Fortune 500 like Walmart, Wayfair and U.S. Bank, and innovators like Ramp, MongoDB, and Figma. We are backed by Sequoia, Kleiner Perkins, LSVP, and Khosla Ventures — and we are moving fast enough that the people joining now are building the playbook everyone who comes after them will run. Profound is building the foundational agentic layer for modern companies. Our Agent Runtime is the execution backbone that turns complex AI work into reliable, composable workflows. You will shape the core primitives, execution, scheduling, state, and streaming, that power intelligent systems at scale. What you’ll do Build core workflow engine primitives used to orchestrate agents, tools, and dataflows Own the real-time control plane, including streaming events, reliable job orchestration, idempotency, and replay Ship high-leverage systems that turn prototypes into production-grade, scalable workflows Design and ship Rust-first backend services and clean APIs for creating, executing, and supervising graph or DAG workflows Build reliable job orchestration with multiple response modes, including blocking, streaming, and fire-and-forget, with durable state Strengthen tenant isolation, security, and access patterns across the platform Improve runtime behavior including scheduling, backpressure, timeouts, retries, and idempotency Evolve schemas and repositories and own migrations, indexing, and query performance Instrument with meaningful telemetry and raise the bar on testing and operational excellence Partner closely with product, frontend, and data teams to deliver high-impact features Who you are Strong portfolio or GitHub showing backend or systems design depth Proficient in Rust and comfortable owning services end-to-end in production Solid with SQL and relational data modeling, with hands-on experience using PostgreSQL Experience with distributed systems patterns including messaging or streaming, retries, idempotency, and backpressure Familiar with caching and state systems such as Redis and real-time delivery using SSE or WebSockets Strong grasp of API authentication and authorization, multi-tenancy, and security best practices Pragmatic, collaborative, and product-minded, thriving in a fast, in-person environment Experience building or operating workflow engines, schedulers, or agent runtimes Experience with Postgres RLS and data governance at scale Practical exposure to containerization, CI or CD, and cloud environments Background integrating external AI or model providers and securing provider configurations Experience working with Rust 2024, PostgreSQL, Redis, Kafka or NATS, containers, modern CI or CD, and real-time streaming to clients Location This is an on-site role based in our NYC office, designed for builders who thrive on speed, iteration, and meaningful impact. We are happy to support visa sponsorship for qualified international candidates. For this role, the expected base salary range is $175,000 to $260,000. Comp may vary by location. Profound’s total compensation package is designed to be competitive and includes base salary, equity, and a full range of benefits and perks. Final compensation will depend on factors such as your skills, experience, qualifications, and location, and will be determined during the interview process. Our recruiting team will share more details about the full compensation package and benefits as you move through hiring. Note: All official communication from Profound will come from a @tryprofound.com email address. If you're contacted by anyone using a different domain, please disregard and report it as spam.",
+   "expected": {
+    "method": "text_range",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "079509c1-a67c-48ce-b886-43f74368b913",
+   "title": "Field Marketer",
+   "url": "https://jobs.ashbyhq.com/profound/079509c1-a67c-48ce-b886-43f74368b913",
+   "locations": [
+    "New York, New York"
+   ],
+   "isRemote": false,
+   "structuredComp": null,
+   "text": "Profound is the marketing platform for the age of AI search. The way brands reach people is being rewritten — AI models like ChatGPT, Perplexity, and Google AI Mode are now the answer layer between companies and their customers. We built the platform marketers use to understand, measure, and win in that world: the analytics, intelligence, and agent automation that turn AI search from a threat into a competitive advantage. We went from 0 to a $1B valuation in 18 months. Revenue grew 100x last year. Our customers include 15% of the Fortune 500 like Walmart, Wayfair and U.S. Bank, and innovators like Ramp, MongoDB, and Figma. We are backed by Sequoia, Kleiner Perkins, LSVP, and Khosla Ventures — and we are moving fast enough that the people joining now are building the playbook everyone who comes after them will run. As Field Marketer, you will own the strategy and execution of Profound’s field marketing motion, including tradeshows, regional events, ABM activations, partner programs, and multi-touch campaigns that turn real-world engagement into real revenue. This is not a set up a booth and hope role. This is a roll up your sleeves, get it done, deeply sales-aligned position. What you’ll do Build and execute multi-touch field marketing campaigns tied to tradeshows, conferences, regional events, and ABM initiatives before, during, and after each moment Own Profound’s tradeshow strategy end to end, including target accounts, messaging, pre-event outreach, booth experience, on-site execution, and post-event conversion Partner closely with Sales and SDRs to align on ICPs, account lists, outreach sequences, meeting goals, and follow-up, and celebrate wins together Actively support pipeline generation by booking meetings, helping pitch on the floor, jumping into conversations, and doing what it takes to drive momentum Design and run field ABM programs across one-to-few and one-to-many motions that combine events, direct mail, social, email, and outbound Collaborate with content and social teams to extend field moments into LinkedIn, thought leadership, and post-event narratives Manage vendors, sponsorships, logistics, timelines, and budgets while maintaining speed and quality Track and report on performance including meetings held, pipeline influenced, conversion rates, and qualitative sales feedback Continuously test, iterate, and improve in a fast-paced environment where learning velocity matters Who you are A doer, not just a planner, thriving in fast-moving environments and loving being in the action Experience building and executing field marketing or demand generation programs in B2B SaaS or technology, including tradeshows, roadshows, regional events, ABM, and outbound-aligned campaigns Strong understanding that great field marketing is campaigns plus sales alignment, not swag and smiles Comfortable working side by side with Account Executives and SDRs, sharing goals, pressure, and wins Strong instincts for messaging, audience targeting, and on-the-ground execution Organized, scrappy, and resourceful, able to fix things when they break Data-minded and focused on pipeline, influence, and what actually moved the needle Experience with social amplification, LinkedIn programs, partner marketing, or early-stage companies Location This is an on-site role based in our NYC office, designed for builders who thrive on speed, iteration, and meaningful impact. For this role, the expected base salary range is $120,000 to $170,000 (NYC). Profound’s total compensation package is designed to be competitive and includes base salary, equity, and a full range of benefits and perks. Final compensation will depend on factors such as your skills, experience, qualifications, and location, and will be determined during the interview process. Our recruiting team will share more details about the full compensation package and benefits as you move through hiring. Note: All official communication from Profound will come from a @tryprofound.com email address. If you're contacted by anyone using a different domain, please disregard and report it as spam.",
+   "expected": {
+    "method": "text_range",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "d9b85406-5cad-4df2-9347-2b971e474137",
+   "title": "Account Executive, Mid-Market",
+   "url": "https://jobs.ashbyhq.com/profound/d9b85406-5cad-4df2-9347-2b971e474137",
+   "locations": [
+    "New York, New York",
+    "San Francisco, California",
+    "Boston, MA",
+    "London, England"
+   ],
+   "isRemote": false,
+   "structuredComp": null,
+   "text": "Profound is the marketing platform for the age of AI search. The way brands reach people is being rewritten — AI models like ChatGPT, Perplexity, and Google AI Mode are now the answer layer between companies and their customers. We built the platform marketers use to understand, measure, and win in that world: the analytics, intelligence, and agent automation that turn AI search from a threat into a competitive advantage. We went from 0 to a $1B valuation in 18 months. Revenue grew 100x last year. Our customers include 15% of the Fortune 500 like Walmart, Wayfair and U.S. Bank, and innovators like Ramp, MongoDB, and Figma. We are backed by Sequoia, Kleiner Perkins, LSVP, and Khosla Ventures — and we are moving fast enough that the people joining now are building the playbook everyone who comes after them will run. As a Mid-Market Account Executive, you will lead fast-moving, consultative sales cycles with high-growth organizations. You will be instrumental in expanding Profound’s reach across the mid-market and help shape how we scale our go-to-market motion as the team grows. What you’ll do Own the entire mid-market sales cycle, from targeted prospecting to negotiation and close Develop and execute scalable outreach strategies to drive new business and expand Profound’s footprint across the mid-market Manage a high-velocity pipeline, balancing strategic conversations with efficient execution Build and nurture relationships that turn first deals into long-term partnerships Partner closely with Product, Marketing, and Customer Success to accelerate learnings and refine messaging Who you are A proven SaaS closer with experience selling into mid-market accounts and consistently exceeding quota Skilled at running multiple deals in parallel and adapting your approach to fit a fast-moving sales environment Entrepreneurial and hands-on, energized by building something new and driving early traction Resilient, curious, and motivated by impact, with a strong bias toward action and experimentation Location This is an on-site role based in our NYC, SF, Boston, or London office, designed for builders who thrive on speed, iteration, and meaningful impact. For this role, the expected base salary range is $90,000 to $150,000 before commission (NYC and SF). Profound’s total compensation package is designed to be competitive and includes base salary, equity, and a full range of benefits and perks. Final compensation will depend on factors such as your skills, experience, qualifications, and location, and will be determined during the interview process. Our recruiting team will share more details about the full compensation package and benefits as you move through hiring. Note: All official communication from Profound will come from a @tryprofound.com email address. If you're contacted by anyone using a different domain, please disregard and report it as spam.",
+   "expected": {
+    "method": "text_range",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "e98d1d1d-aeec-4b8d-aef8-ea9b61546639",
+   "title": "Member of Technical Staff, Design Engineer",
+   "url": "https://jobs.ashbyhq.com/profound/e98d1d1d-aeec-4b8d-aef8-ea9b61546639",
+   "locations": [
+    "New York, New York",
+    "Buenos Aires, Argentina"
+   ],
+   "isRemote": false,
+   "structuredComp": null,
+   "text": "Profound is the marketing platform for the age of AI search. The way brands reach people is being rewritten — AI models like ChatGPT, Perplexity, and Google AI Mode are now the answer layer between companies and their customers. We built the platform marketers use to understand, measure, and win in that world: the analytics, intelligence, and agent automation that turn AI search from a threat into a competitive advantage. We went from 0 to a $1B valuation in 18 months. Revenue grew 100x last year. Our customers include 15% of the Fortune 500 like Walmart, Wayfair and U.S. Bank, and innovators like Ramp, MongoDB, and Figma. We are backed by Sequoia, Kleiner Perkins, LSVP, and Khosla Ventures — and we are moving fast enough that the people joining now are building the playbook everyone who comes after them will run. Design engineering is core to how we build at Profound. Our founder, Dylan Babbs, started his career as a design engineer, and we hold a high bar for craft, taste, and execution. As a Design Engineer, you will work between design and engineering by shipping high-quality, highly polished experiences across our product and, at times, our marketing surfaces. What you’ll do Build and ship polished, production-quality UI across our core product or marketing site Partner with product designers, product managers, and engineers to translate intent into precise, high-fidelity implementations Craft UI details including layouts, typography, responsiveness, motion, and micro-interactions using Tailwind CSS Contribute occasionally to the marketing site and logged-out experiences while maintaining the same bar for quality and performance Contribute to shared UI foundations including components, patterns, and design tokens Work across the stack using React, Next.js, and TypeScript to deliver fast, reliable interfaces Optimize for performance, accessibility, and maintainability without compromising on design Raise the bar for frontend craft through code reviews, critiques, and shared standards Who you are Strong experience with React, Next.js, Tailwind, and TypeScript in production environments Exceptional CSS skills with a proven ability to build pixel-perfect, resilient user interfaces Strong eye for design and interaction with taste you can both defend and implement Comfortable owning work end to end from early exploration through shipped code Experience working closely with designers and engineers in fast-moving product teams Portfolio that demonstrates high-craft frontend or design engineering work Thrive in a startup environment that values speed, iteration, and quality Enjoy experimenting and working on side projects to stay current with leading edge technologies Strong product thinking and builder mindset, comfortable working across design, product, and engineering to ship work Can just do things Note from our co-founder In the evolving landscape of product development, exceptional design is not merely a nice-to-have, it is foundational. As software engineering becomes increasingly accessible, it is taste, creativity, and thoughtful execution that differentiate outstanding products from the rest. I believe deeply that design sits at the core of our success. At Profound, my goal is to build a design team renowned for setting a new standard of excellence, crafting experiences so compelling they become benchmarks in our industry. If you are someone who believes in the transformative power of great design and wants to create work that genuinely shapes the future, join us. Let’s redefine what’s possible together. Dylan Babbs, Co-founder & CTO Location This is an on-site role based in our NYC or Buenos Aires office, designed for builders who thrive on speed, iteration, and meaningful impact. For this role, the expected base salary range is $120,000 to $250,000 (NYC). Comp may vary by location. Profound’s total compensation package is designed to be competitive and includes base salary, equity, and a full range of benefits and perks. Final compensation will depend on factors such as your skills, experience, qualifications, and location, and will be determined during the interview process. Our recruiting team will share more details about the full compensation package and benefits as you move through hiring. Note: All official communication from Profound will come from a @tryprofound.com email address. If you're contacted by anyone using a different domain, please disregard and report it as spam.",
+   "expected": {
+    "method": "text_range",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "261793a4-1711-4c02-b58b-96b0f984b672",
+   "title": "Member of Technical Staff, Data Platform",
+   "url": "https://jobs.ashbyhq.com/profound/261793a4-1711-4c02-b58b-96b0f984b672",
+   "locations": [
+    "New York, New York"
+   ],
+   "isRemote": false,
+   "structuredComp": null,
+   "text": "Profound is the marketing platform for the age of AI search. The way brands reach people is being rewritten — AI models like ChatGPT, Perplexity, and Google AI Mode are now the answer layer between companies and their customers. We built the platform marketers use to understand, measure, and win in that world: the analytics, intelligence, and agent automation that turn AI search from a threat into a competitive advantage. We went from 0 to a $1B valuation in 18 months. Revenue grew 100x last year. Our customers include 15% of the Fortune 500 like Walmart, Wayfair and U.S. Bank, and innovators like Ramp, MongoDB, and Figma. We are backed by Sequoia, Kleiner Perkins, LSVP, and Khosla Ventures — and we are moving fast enough that the people joining now are building the playbook everyone who comes after them will run. Profound is on a mission to help companies understand and control their AI presence. We are looking for a Software Engineer, Data Platform to design, build, and scale the infrastructure that powers data across our organization. You will architect scalable platforms and develop tools and frameworks that enable data scientists, analytics engineers, and machine learning engineers, while building the foundation for analytics, experimentation, and ML-powered features. This is a great opportunity for someone who enjoys building robust systems, solving complex technical challenges, and enabling teams through great platform design. What you’ll do Design and build platform infrastructure that supports machine learning, analytics, and software engineers, as well as data scientists across the company Develop tools and frameworks for data ingestion, transformation, quality, and observability Architect scalable, reliable systems using Snowflake, Clickhouse, AWS, dbt, and Dagster Build governance, access control, and data quality systems that scale with the organization Enable MLOps by creating infrastructure that supports model development and productionization Drive technical decisions around platform architecture, tool selection, and data patterns Collaborate with product, engineering, and data teams to understand needs and deliver impactful solutions Who you are Proven experience building platforms for engineers and data scientists in areas such as product analytics and experimentation, data discovery and catalog, data quality and observability, or governance and access control Experience designing and operating large-scale distributed data systems Expertise with analytics and lakehouse technologies including ClickHouse, Tinybird, Snowflake, or Iceberg Strong cloud experience with AWS, GCP, or Azure Experience with data governance, reliability, and secure data operations Excellent communication skills with the ability to influence across engineering and product teams Experience with or interest in MLOps and supporting machine learning workflows in production Strong problem-solving skills and comfort operating in a fast-paced, impact-driven environment Motivated by access to rare and interesting AI data based on real human interactions with large language models Excited by the opportunity to own and shape Profound’s data platform at an early stage Interested in working on meaningful problems at the intersection of AI and marketing Comfortable in a fast-moving culture with autonomy, trust, and room to grow Drawn to competitive compensation and meaningful equity Location This is an on-site role based in our NYC or SF office, designed for builders who thrive on speed, iteration, and meaningful impact. We are happy to support visa sponsorship for qualified international candidates. For this role, the expected base salary range is $140,000 to $260,000 (NYC and SF). Comp may vary by location. Profound’s total compensation package is designed to be competitive and includes base salary, equity, and a full range of benefits and perks. Final compensation will depend on factors such as your skills, experience, qualifications, and location, and will be determined during the interview process. Our recruiting team will share more details about the full compensation package and benefits as you move through hiring. #LI-PRO Note: All official communication from Profound will come from a @tryprofound.com email address. If you're contacted by anyone using a different domain, please disregard and report it as spam.",
+   "expected": {
+    "method": "text_range",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "d3063f9e-bfa7-412c-812c-57401a697449",
+   "title": "Member of Technical Staff, Security",
+   "url": "https://jobs.ashbyhq.com/profound/d3063f9e-bfa7-412c-812c-57401a697449",
+   "locations": [
+    "New York, New York"
+   ],
+   "isRemote": false,
+   "structuredComp": null,
+   "text": "Profound is the marketing platform for the age of AI search. The way brands reach people is being rewritten — AI models like ChatGPT, Perplexity, and Google AI Mode are now the answer layer between companies and their customers. We built the platform marketers use to understand, measure, and win in that world: the analytics, intelligence, and agent automation that turn AI search from a threat into a competitive advantage. We went from 0 to a $1B valuation in 18 months. Revenue grew 100x last year. Our customers include 15% of the Fortune 500 like Walmart, Wayfair and U.S. Bank, and innovators like Ramp, MongoDB, and Figma. We are backed by Sequoia, Kleiner Perkins, LSVP, and Khosla Ventures — and we are moving fast enough that the people joining now are building the playbook everyone who comes after them will run. As enterprises integrate AI into critical workflows, they need to trust that the platforms they rely on are secure, compliant, and resilient. That's where you come in. We're hiring a Security Engineer to own Profound's security posture across our platform, infrastructure, and corporate environment. You'll be the first dedicated security hire, which means you'll shape how we approach access control, vulnerability management, compliance, and incident response from the ground up. You'll partner closely with our Engineering and Infrastructure teams to build practical, scalable security systems that protect customer data and enable rapid growth. This role is ideal for someone who sees security as a business accelerator, not a blocker, and who thrives on building rather than auditing. What you'll do In your first 90 days, you'll focus on our most pressing priorities: partnering with our Infrastructure team to harden our AWS environment, driving SOC 2 Type II continuous compliance (defining controls and closing gaps), and integrating security scanning into our CI/CD pipelines. Over time, you'll take on broader responsibility across our security posture: Enforce least-privilege access controls and conduct regular access reviews across environments Build and run a vulnerability management program spanning infrastructure, applications, and dependencies Triage and respond to security findings from automated tooling, bug bounty programs, and third-party assessments Partner with Infrastructure to implement detection and monitoring capabilities using log aggregation and SIEM tooling Conduct risk assessments, maintain a risk register, and drive prioritization decisions Build security policies and procedures that reflect how we actually operate Lead post-incident reviews and drive systemic improvements Must have 5+ years in security engineering, with experience in high-growth SaaS or infrastructure-heavy environments Hands-on experience building or maintaining a SOC 2 compliance program Strong knowledge of AWS security services and cloud security architecture (IAM, VPC, CloudTrail, GuardDuty, Security Hub) Deep understanding of identity and authentication protocols (OAuth, SAML, OIDC) Practical scripting skills in Python or Bash for automating security workflows Strong plus Experience integrating vulnerability management and security scanning (SAST, DAST, SCA, container scanning) into CI/CD workflows Familiarity with network security fundamentals (firewalls, DNS, VPNs, segmentation, traffic analysis) Experience with infrastructure-as-code security (Terraform, CloudFormation) Background in penetration testing, application security assessments, or CTF competitions Familiarity with data infrastructure security for systems like ClickHouse or PostgreSQL Experience with data processing compliance in analytics-heavy environments Relevant certifications (CISSP, CCSP, AWS Security Specialty, or similar) Who you are Clear communicator who can translate security risks into business terms for engineering, leadership, and customer-facing teams Systems thinker who reasons about root causes, blast radius, and scalable control design Self-directed with strong judgment and comfort operating with significant autonomy Motivated by building the security foundation for a category-defining AI company Compensation For this role, the expected base salary range is $200,000 to $250,000 (NYC). Profound's total compensation package includes base salary, equity, and a full range of benefits and perks. Final compensation depends on skills, experience, qualifications, and location, and will be determined during the interview process. Our recruiting team will share more details about the full package as you move through hiring. #LI-PRO Note: All official communication from Profound will come from a @tryprofound.com email address. If you're contacted by anyone using a different domain, please disregard and report it as spam.",
+   "expected": {
+    "method": "text_range",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "816c2ab6-7398-4cd8-b1b5-695d4673b476",
+   "title": "VP, Strategic Partnerships",
+   "url": "https://jobs.ashbyhq.com/profound/816c2ab6-7398-4cd8-b1b5-695d4673b476",
+   "locations": [
+    "New York, New York",
+    "San Francisco, California"
+   ],
+   "isRemote": false,
+   "structuredComp": null,
+   "text": "Profound is the marketing platform for the age of AI search. The way brands reach people is being rewritten — AI models like ChatGPT, Perplexity, and Google AI Mode are now the answer layer between companies and their customers. We built the platform marketers use to understand, measure, and win in that world: the analytics, intelligence, and agent automation that turn AI search from a threat into a competitive advantage. We went from 0 to a $1B valuation in 18 months. Revenue grew 100x last year. Our customers include 15% of the Fortune 500 like Walmart, Wayfair and U.S. Bank, and innovators like Ramp, MongoDB, and Figma. We are backed by Sequoia, Kleiner Perkins, LSVP, and Khosla Ventures — and we are moving fast enough that the people joining now are building the playbook everyone who comes after them will run. As our VP of Strategic Partnerships, you will architect and lead the global partnership strategy that establishes Profound as the definitive platform for AI search optimization. You will define the vision, build the team, and personally drive the highest-leverage relationships across the AI ecosystem — from major agency networks and global systems integrators to hyperscale cloud marketplaces and enterprise B2B platforms. This role operates at the executive level, sitting at the intersection of product strategy, revenue, and market positioning. You will own the full partnership lifecycle while leading cross-functional alignment to ensure deep integrations and joint go-to-market programs deliver transformational value for Profound and our partners. What you'll do Define and execute Profound's global partnership strategy across product, channel, agency, and data partnerships — with direct accountability for partnership-sourced pipeline and revenue Build and scale a Global Systems Integrator (GSI) program, establishing and deepening relationships with the likes of Accenture, Deloitte, Bain, Cap Gemini etc. Own and grow Profound's presence within the Agency ecosystem — forging strategic alliances with holding companies and independent digital agencies who are shaping how brands approach AI search and discoverability Develop and lead hyperscale go-to-market programs through cloud marketplaces including AWS Marketplace, Google Cloud Marketplace, and Azure — driving co-sell motions, committed spend agreements, and enterprise co-marketing investments Structure and negotiate complex, executive-level partnership agreements balancing commercial terms, technical integration requirements, and long-term strategic value Lead a cross-functional partnership function working closely with Product, Engineering, Analytics, Marketing, and Sales to take partnerships from concept through commercial launch Serve as the executive point of contact for Profound's most strategic partners — leading QBRs, tracking performance, and proactively identifying expansion and upsell opportunities Drive joint marketing initiatives, co-selling motions, and customer enablement programs alongside Marketing and Sales leadership Represent Profound externally as a thought leader in the AI ecosystem — at industry events, in partner announcements, and through content and case studies Maintain a living view of the AI ecosystem landscape and competitive dynamics, informing product and go-to-market strategy at the executive level Who you are 7+ years in strategic partnerships, business development, or alliances in high-growth technology or SaaS, with a demonstrated track record of building programs that drive significant revenue and product value Deep experience running a GSI program Proven experience navigating the Agency ecosystem — you understand how holding companies and independent agencies make technology decisions and how to position a platform as essential to their client work Hands-on experience driving co-sell and marketplace programs through AWS, GCP, or Azure at scale, including marketplace listings, co-sell activation, and cloud-committed revenue motions Deep fluency in the AI landscape — including LLM providers, AI platforms, search technologies, and the broader application layer — and a clear point of view on where it's heading Executive-level communicator and relationship builder with a track record of closing complex, multi-stakeholder deals involving commercial terms, data licensing, technical integrations, and joint go-to-market commitments Existing C-suite and VP-level relationships across AI platform companies, agency networks, cloud providers, and enterprise SaaS Experience leading and scaling partnerships teams in a high-growth startup environment Background in analytics, marketing technology, SEO, or SaaS platforms serving enterprise customers is a strong plus Note: All official communication from Profound will come from a @tryprofound.com email address. If you're contacted by anyone using a different domain, please disregard and report it as spam.",
+   "expected": {
+    "method": "none",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  }
+ ]
+}

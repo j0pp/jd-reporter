@@ -1,0 +1,152 @@
+{
+ "vendor": "ashby",
+ "slug": "rogo",
+ "cases": [
+  {
+   "externalId": "6ab312ab-c154-4a6e-a264-812014b1790b",
+   "title": "Advisory Director",
+   "url": "https://jobs.ashbyhq.com/rogo/6ab312ab-c154-4a6e-a264-812014b1790b",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 160000,
+     "max": 200000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$160K – $200K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "3ac618ed-b5c2-4b2c-9935-45d61edcb7d9",
+   "title": "Software Engineer: Full-Stack",
+   "url": "https://jobs.ashbyhq.com/rogo/3ac618ed-b5c2-4b2c-9935-45d61edcb7d9",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 250000,
+     "max": 315000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$250K – $315K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "a6ceeb19-aa28-4e22-a103-dcc4a0de175c",
+   "title": "Software Engineer: Backend",
+   "url": "https://jobs.ashbyhq.com/rogo/a6ceeb19-aa28-4e22-a103-dcc4a0de175c",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": null,
+   "text": "Why Rogo Our mission is to transform global finance by empowering professionals at the world's top investment banks, private equity funds, and investment firms with AI that delivers unparalleled speed, accuracy, and insight. We're not just improving financial workflows; we're redefining them. This is a unique opportunity to join a generational company driving transformation in one of the most important industries in the world. With a rapidly growing, global client base, proven product-market fit, and backing from world-class investors, we are scaling quickly and defining a new category of enterprise AI. Our team is sharp, motivated, and deeply committed to Rogo’s mission. We take ownership of complex problems and stay relentlessly focused on our users. If you thrive in a fast-paced environment, demand excellence, and want to help build the future of finance, we invite you to join us. What You Will Own As a backend engineer at Rogo, you'll be at the cutting edge of AI research and application development, playing a crucial role in creating a category-defining product and scaling it to massive enterprises. Architect REST and gRPC APIs that are backed by stable, scalable server side implementations and asynchronous code Design and build large-scale infrastructure to power crawling, ranking, and retrieval systems Ship secure and compliant code : implement security concepts to develop software dealing with sensitive data Write robust code that’s easy to read, maintain and test Raise the bar for code quality, reliability and product velocity. Collaboratively, you'll push yourself and peers to develop technically and interpersonally What You Will Need Bachelors in Computer Science or related degree Experience with a strongly typed language (e.g., Rust, C++, or Java) You love writing highly performant and readable code that is well-tested 4+ years of experience building and scaling distributed systems Track record of shipping high-quality products Strong programming skills and general Computer Science knowledge Bonus Experience with an interface definition language like protocol buffers and gRPC Experience with Map Reduce or other massively distributed parallel computation frameworks Early engineer at a hyper-growth startup Experience in world-class product organizations (e.g., Notion, Figma) Who You Are You thrive in fast-paced environments. You are high-intensity and care a lot about what you do, and you're ecstatic to work at a startup. You are ambitious. You have fun solving problems that others think are impossible. You are curious. You find joy in learning about AI, technology, and finance. You are an owner. You are autonomous, self-directed, and comfortable working with ambiguity. You are collaborative, organized, thoughtful, and kind . Why Join Rogo? Up and to the right: Rogo has strong product adoption with the world's leading financial institutions, and we are still early. The upside is enormous. Extraordinary team: we take talent density seriously. You'll do the best work of your career alongside some of the sharpest people in AI and finance. A one-of-one problem: bringing AI to the core of how Wall Street works is one of the most ambitious, technically demanding, and consequential problems today. There is nowhere else you can work on it at this scale. Real ownership : You'll own real surface area and watch the world's most sophisticated users rely on your work. Always at the frontier: we work at the edge of what the best models can do and turn it into products people trust. If you're obsessed with AI, this is where it's happening.",
+   "expected": {
+    "method": "none",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "2f5d19cc-2de6-4a27-a5fe-c22db49a4d2d",
+   "title": "GTM Associate",
+   "url": "https://jobs.ashbyhq.com/rogo/2f5d19cc-2de6-4a27-a5fe-c22db49a4d2d",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 85000,
+     "max": 90000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$85K – $90K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "0c016b7d-348a-4574-8698-6a4c354f9fed",
+   "title": "Enterprise Account Executive",
+   "url": "https://jobs.ashbyhq.com/rogo/0c016b7d-348a-4574-8698-6a4c354f9fed",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 150000,
+     "max": 200000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$150K – $200K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "c1f64e45-53fe-445a-a27b-3a28e7b17838",
+   "title": "Director, Content and Data Partnerships",
+   "url": "https://jobs.ashbyhq.com/rogo/c1f64e45-53fe-445a-a27b-3a28e7b17838",
+   "locations": [
+    "New York City"
+   ],
+   "isRemote": false,
+   "structuredComp": null,
+   "text": "Why Rogo Our mission is to transform global finance by empowering professionals at the world's top investment banks, private equity funds, and investment firms with AI that delivers unparalleled speed, accuracy, and insight. We're not just improving financial workflows; we're redefining them. This is a unique opportunity to join a generational company driving transformation in one of the most important industries in the world. With a rapidly growing, global client base, proven product-market fit, and backing from world-class investors, we are scaling quickly and defining a new category of enterprise AI. Our team is sharp, motivated, and deeply committed to Rogo’s mission. We take ownership of complex problems and stay relentlessly focused on our users. If you thrive in a fast-paced environment, demand excellence, and want to help build the future of finance, we invite you to join us. Role This role exists to accelerate Rogo’s content and data business globally. It reports directly to the President and owns the relationships, commercial structures, and strategic initiatives to scale Rogo’s content ecosystem. This role will also help define the commercial and licensing models for financial content in an AI-native world. Many of these arrangements will have no established market precedent. Success requires strong commercial judgment, fluency in the financial data ecosystem, comfort with complex rights and economics, and the ability to turn signed agreements into differentiated products that customers use and value. Specifically, the role involves: Developing Rogo’s global content and data partnership strategy, including market mapping, partner prioritization, and a multi-year content roadmap Owning stakeholder relationships with commercial decision-makers at financial data, research, and info-services platforms globally Leading negotiation of partnership contracts with content providers — many of which are novel agreements without standard market precedent Establish frameworks for AI-native content use, including model usage rights, derived outputs, attribution, entitlements, auditability, and redistribution Designing and implementing novel commercialization models that align Rogo’s platform with the evolving economics of content consumption Feeding directly into product and commercial strategy, in partnership with Sales, Post-Sales, and Marketing — how Rogo bundles, prices, and brings content to market will be shaped significantly by this role Partnering with Sales, Post-Sales, and Marketing to shape how Rogo packages, prices, positions, and brings content-enabled products to market Collaborating with Legal and Finance on intellectual-property rights, compliance requirements, contractual risk, and complex deal economics Working cross-functionally with Product and Engineering to translate partnership requirements into platform capabilities Helping define Rogo’s external point of view on AI-era content economics and represent the company with senior industry stakeholders Profile: The ideal person has spent their career inside the financial data and information-services ecosystem and has personally carried deals from start to finish. They likely come from a partnerships, BD, or commercial role at a major data or research provider — e.g., Bloomberg, LSEG, S&P, etc. — or a firm adjacent to or serving these players where they owned provider or distribution relationships and negotiated the terms. In addition to the above, key qualifications include: Deep familiarity with and relationships within the financial data ecosystem including Bloomberg, FactSet, S&P / Visible Alpha, Morningstar, and others Proven negotiation experience — not just coordination Strong commercial instincts; treats partnerships like a sales pipeline Ability to independently evaluate dataset quality and strategic value, as an input into both commercial and Product decision-making Experience in data partnerships/BD and/or commercial roles within financial data and info-services Fluency in content economics and licensing structures, including enterprise licenses and redistribution rights Structured, detail-oriented, and disciplined in tracking relationships and deal cycles Excellent communicator we trust in front of major partners Record of operating autonomously on high-stakes decisions with incomplete information, and being trusted in front of a provider's most senior people Familiarity with the intellectual-property and data-rights questions created by generative AI and AI-enabled research workflows Experience in a high-growth team environment is a plus Who You Are You thrive in fast-paced environments. You are high-intensity and care a lot about what you do, and you're ecstatic to work at a startup. You are ambitious. You have fun solving problems that others think are impossible. You are curious. You find joy in learning about AI, technology, and finance. You are an owner. You are autonomous, self-directed, and comfortable working with ambiguity. You are collaborative, organized, thoughtful, and kind . Why Join Rogo? Up and to the right: Rogo has strong product adoption with the world's leading financial institutions, and we are still early. The upside is enormous. Extraordinary team: we take talent density seriously. You'll do the best work of your career alongside some of the sharpest people in AI and finance. A one-of-one problem: bringing AI to the core of how Wall Street works is one of the most ambitious, technically demanding, and consequential problems today. There is nowhere else you can work on it at this scale. Real ownership : You'll own real surface area and watch the world's most sophisticated users rely on your work. Always at the frontier: we work at the edge of what the best models can do and turn it into products people trust. If you're obsessed with AI, this is where it's happening.",
+   "expected": {
+    "method": "none",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

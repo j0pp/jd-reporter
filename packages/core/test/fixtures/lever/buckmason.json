@@ -1,0 +1,114 @@
+{
+ "vendor": "lever",
+ "slug": "buckmason",
+ "cases": [
+  {
+   "externalId": "656c47d8-c6ca-4d59-ae3f-2bc3332cfab5",
+   "title": "Floor Leader (Nolita Women's)",
+   "url": "https://jobs.lever.co/buckmason/656c47d8-c6ca-4d59-ae3f-2bc3332cfab5",
+   "locations": [
+    "New York, NY"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 18,
+     "max": 26,
+     "currency": "USD",
+     "interval": "per-hour-wage",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "793b60f1-23a9-4f5f-a304-2d36c79a917d",
+   "title": "Floor Leader (Soho Men's)",
+   "url": "https://jobs.lever.co/buckmason/793b60f1-23a9-4f5f-a304-2d36c79a917d",
+   "locations": [
+    "New York, NY"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 18,
+     "max": 26,
+     "currency": "USD",
+     "interval": "per-hour-wage",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "151620a5-0477-493c-8882-6401149b311e",
+   "title": "Floor Leader (Soho Women's)",
+   "url": "https://jobs.lever.co/buckmason/151620a5-0477-493c-8882-6401149b311e",
+   "locations": [
+    "New York, NY"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 23,
+     "max": 32,
+     "currency": "USD",
+     "interval": "per-hour-wage",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "58e9c4b9-f541-4a6c-bd31-6b12587f74ad",
+   "title": "Floor Leader (West Village Men's)",
+   "url": "https://jobs.lever.co/buckmason/58e9c4b9-f541-4a6c-bd31-6b12587f74ad",
+   "locations": [
+    "West Village, NY"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 18,
+     "max": 26,
+     "currency": "USD",
+     "interval": "per-hour-wage",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "no",
+    "nys": "covered",
+    "locClass": "ny_state",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

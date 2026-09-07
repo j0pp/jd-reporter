@@ -1,0 +1,35 @@
+# drains the submission queue. the worker fires repository_dispatch as a wake-up; the schedule is the
+# safety net for any dispatch that got lost. public pages catch up on the next daily build by design.
+name: process submissions
+
+on:
+  repository_dispatch:
+    types: [submission]
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: process
+  cancel-in-progress: false
+
+env:
+  DB_MODE: d1
+  BLOB_MODE: r2
+  CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+  CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+  D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
+  R2_BUCKET: ${{ vars.R2_BUCKET || 'jd-reporter' }}
+  R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+  R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+  USER_AGENT: ${{ vars.USER_AGENT }}
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    if: ${{ vars.PIPELINE_ENABLED == 'true' }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm --filter @jdr/crawler cli process-submissions --limit 25

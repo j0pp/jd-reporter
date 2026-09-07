@@ -1,0 +1,114 @@
+{
+ "vendor": "lever",
+ "slug": "spear",
+ "cases": [
+  {
+   "externalId": "132cd75e-6c26-42f0-ac72-06986c14a423",
+   "title": "Business Development Physician Liaison - Manhattan",
+   "url": "https://jobs.lever.co/spear/132cd75e-6c26-42f0-ac72-06986c14a423",
+   "locations": [
+    "New York, New York"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 80000,
+     "max": 120000,
+     "currency": "USD",
+     "interval": "per-year-salary",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "45af7292-e1b9-4b3f-8fa5-095e9b44462e",
+   "title": "Care Coordinator- 70 Pine",
+   "url": "https://jobs.lever.co/spear/45af7292-e1b9-4b3f-8fa5-095e9b44462e",
+   "locations": [
+    "New York, New York"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 18,
+     "max": 18,
+     "currency": "USD",
+     "interval": "per-hour-wage",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "1a45f18d-b4b4-4120-b2a7-3a518e0e2c2b",
+   "title": "Care Coordinator- Astoria",
+   "url": "https://jobs.lever.co/spear/1a45f18d-b4b4-4120-b2a7-3a518e0e2c2b",
+   "locations": [
+    "Astoria, New York"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 18,
+     "max": 18,
+     "currency": "USD",
+     "interval": "per-hour-wage",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "ff5e9673-9570-41a8-8ac4-023ef9efd3a7",
+   "title": "Care Coordinator- Barclays Center",
+   "url": "https://jobs.lever.co/spear/ff5e9673-9570-41a8-8ac4-023ef9efd3a7",
+   "locations": [
+    "Brooklyn, New York"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 18,
+     "max": 18,
+     "currency": "USD",
+     "interval": "per-hour-wage",
+     "summary": null
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

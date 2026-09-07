@@ -1,0 +1,124 @@
+{
+ "vendor": "ashby",
+ "slug": "ramp",
+ "cases": [
+  {
+   "externalId": "34413f8d-26bf-4bbc-8ade-eb309a0e2245",
+   "title": " Security Engineer, Cloud",
+   "url": "https://jobs.ashbyhq.com/ramp/34413f8d-26bf-4bbc-8ade-eb309a0e2245",
+   "locations": [
+    "New York, NY (HQ)",
+    "Remote (Canada)",
+    "Remote (US)",
+    "Miami, FL"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 211400,
+     "max": 290600,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$211.4K – $290.6K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "f564dcf9-9390-4a3f-896f-8047a5086040",
+   "title": "Mobile Engineer, Android",
+   "url": "https://jobs.ashbyhq.com/ramp/f564dcf9-9390-4a3f-896f-8047a5086040",
+   "locations": [
+    "New York, NY (HQ)",
+    "Remote (Canada)",
+    "San Francisco, CA",
+    "Remote (US)"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 189000,
+     "max": 330000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$189K – $330K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "4e64ab86-4e30-403b-b1b9-41dc052570ce",
+   "title": "Software Engineer, Frontend",
+   "url": "https://jobs.ashbyhq.com/ramp/4e64ab86-4e30-403b-b1b9-41dc052570ce",
+   "locations": [
+    "New York, NY (HQ)",
+    "Remote (Canada)",
+    "San Francisco, CA",
+    "Remote (US)",
+    "Miami, FL"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 143200,
+     "max": 284000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$143.2K – $284K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "1db75064-e38c-4b21-8310-21471943d0be",
+   "title": "Technical Program Manager",
+   "url": "https://jobs.ashbyhq.com/ramp/1db75064-e38c-4b21-8310-21471943d0be",
+   "locations": [
+    "New York, NY (HQ)"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 144600,
+     "max": 269000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$144.6K – $269K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "nyc_strict",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

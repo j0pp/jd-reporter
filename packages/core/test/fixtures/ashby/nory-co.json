@@ -1,0 +1,114 @@
+{
+ "vendor": "ashby",
+ "slug": "nory-co",
+ "cases": [
+  {
+   "externalId": "5b0c0d56-9cb5-4fb7-a8ff-5df4089fec6c",
+   "title": "Cleaning Professional",
+   "url": "https://jobs.ashbyhq.com/nory-co/5b0c0d56-9cb5-4fb7-a8ff-5df4089fec6c",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 20,
+     "max": 25,
+     "currency": "USD",
+     "interval": "1 HOUR",
+     "summary": "$20 – $25 per hour"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "e5da2b70-1dc6-4401-8ffe-83c8a8d4c40b",
+   "title": "Customer Happiness Representative (Remote, Seasonal, Part-Time)",
+   "url": "https://jobs.ashbyhq.com/nory-co/e5da2b70-1dc6-4401-8ffe-83c8a8d4c40b",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 20,
+     "max": 20,
+     "currency": "USD",
+     "interval": "1 HOUR",
+     "summary": "$20 per hour"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "4381bb35-8389-4f77-8540-1b27ef98607b",
+   "title": "School Break Day Camp Site Leader Ages 3–12 (Manhattan & Brooklyn)",
+   "url": "https://jobs.ashbyhq.com/nory-co/4381bb35-8389-4f77-8540-1b27ef98607b",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 200,
+     "max": 210,
+     "currency": "USD",
+     "interval": "1 DAY",
+     "summary": "$200 – $210 per day"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "48990e7f-30fe-4c6b-ad66-cb40af976d0d",
+   "title": "Summer Day Camp Assistant Teacher (Manhattan, Brooklyn)",
+   "url": "https://jobs.ashbyhq.com/nory-co/48990e7f-30fe-4c6b-ad66-cb40af976d0d",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 17,
+     "max": 18,
+     "currency": "USD",
+     "interval": "1 HOUR",
+     "summary": "$17 – $18 per hour"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

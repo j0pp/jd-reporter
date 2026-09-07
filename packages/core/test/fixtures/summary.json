@@ -1,0 +1,192 @@
+{
+ "greenhouse:anthropic": {
+  "text_range": 309,
+  "placeholder_range": 2
+ },
+ "greenhouse:braze": {
+  "text_range": 127,
+  "evergreen": 1,
+  "fixed_rate": 6,
+  "placeholder_range": 1
+ },
+ "greenhouse:coreweave": {
+  "text_range": 172,
+  "malformed_range": 4,
+  "placeholder_range": 1,
+  "offsite_unverified": 1
+ },
+ "greenhouse:datadog": {
+  "text_range": 151,
+  "offsite_unverified": 1
+ },
+ "greenhouse:diginnother": {
+  "text_range": 177
+ },
+ "greenhouse:doordashusa": {
+  "text_range": 166,
+  "placeholder_range": 1
+ },
+ "greenhouse:figma": {
+  "text_range": 91
+ },
+ "greenhouse:mediabrands": {
+  "text_range": 134,
+  "placeholder_range": 1
+ },
+ "greenhouse:oscar": {
+  "offsite_unverified": 1,
+  "text_range": 221,
+  "evergreen": 1,
+  "fixed_rate": 2
+ },
+ "greenhouse:stripe": {
+  "offsite_unverified": 135,
+  "text_range": 7
+ },
+ "greenhouse:successacademycharterschool": {
+  "text_range": 92,
+  "fixed_rate": 1
+ },
+ "greenhouse:thenewyorktimes": {
+  "text_range": 141
+ },
+ "lever:buckmason": {
+  "structured": 48
+ },
+ "lever:cgsfederal": {
+  "structured": 128,
+  "none": 1
+ },
+ "lever:destinationknot": {
+  "structured": 56
+ },
+ "lever:gopuff": {
+  "fixed_rate": 40
+ },
+ "lever:insomniacookies": {
+  "structured": 45,
+  "text_range": 7,
+  "none": 6,
+  "fixed_rate": 27,
+  "dollar_mention_only": 1
+ },
+ "lever:lifestance": {
+  "text_range": 56,
+  "structured": 1
+ },
+ "lever:nitra": {
+  "structured": 1,
+  "text_range": 22,
+  "none": 4,
+  "open_ended": 2,
+  "fixed_rate": 1
+ },
+ "lever:palantir": {
+  "text_range": 84,
+  "fixed_rate": 12
+ },
+ "lever:spear": {
+  "structured": 119
+ },
+ "lever:spotify": {
+  "text_range": 26,
+  "fixed_rate": 1
+ },
+ "lever:veeva": {
+  "text_range": 54,
+  "fixed_rate": 10
+ },
+ "lever:wearedream": {
+  "fixed_rate": 13,
+  "text_range": 34,
+  "evergreen": 1
+ },
+ "ashby:claylabs": {
+  "structured": 40
+ },
+ "ashby:dualentry": {
+  "structured": 53
+ },
+ "ashby:eliseai": {
+  "text_range": 88,
+  "fixed_rate": 9,
+  "malformed_range": 1,
+  "open_ended": 1
+ },
+ "ashby:harvey": {
+  "structured": 103,
+  "text_range": 2
+ },
+ "ashby:kalshi": {
+  "text_range": 33,
+  "structured": 5,
+  "none": 1
+ },
+ "ashby:legora": {
+  "structured": 79
+ },
+ "ashby:nory-co": {
+  "structured": 32
+ },
+ "ashby:plaid": {
+  "structured": 67
+ },
+ "ashby:polymarket": {
+  "text_range": 57,
+  "none": 15
+ },
+ "ashby:profound": {
+  "structured": 44,
+  "text_range": 24,
+  "none": 1
+ },
+ "ashby:ramp": {
+  "structured": 124
+ },
+ "ashby:rogo": {
+  "structured": 53,
+  "none": 2
+ },
+ "workday:aresmgmt|wd1|external": {
+  "text_range": 20
+ },
+ "workday:blackrock|wd1|blackrock_professional": {
+  "text_range": 20
+ },
+ "workday:capitalone|wd12|capital_one": {
+  "text_range": 1
+ },
+ "workday:convive|wd12|lepainquotidien": {
+  "text_range": 8
+ },
+ "workday:dollartree|wd5|dollartreeus": {
+  "none": 20
+ },
+ "workday:dowjones|wd1|dow_jones_career": {
+  "text_range": 16
+ },
+ "workday:dowjones|wd1|new_york_post_careers": {
+  "text_range": 18,
+  "fixed_rate": 2
+ },
+ "workday:fox|wd1|domestic": {
+  "text_range": 18,
+  "fixed_rate": 2
+ },
+ "workday:hss|wd1|hss_careers": {
+  "text_range": 20
+ },
+ "workday:msk|wd108|mskcc_careers_primary": {
+  "text_range": 19,
+  "evergreen": 1
+ },
+ "workday:nyp|wd1|nypcareers": {
+  "fixed_rate": 1,
+  "text_range": 3
+ },
+ "workday:rfcuny|wd108|rfcuny": {
+  "text_range": 9,
+  "fixed_rate": 10,
+  "none": 1
+ }
+}

@@ -1,0 +1,153 @@
+{
+ "vendor": "ashby",
+ "slug": "harvey",
+ "cases": [
+  {
+   "externalId": "0d750bf9-d3f2-4816-9e28-23d12a0ef2e2",
+   "title": "Enterprise Customer Success Manager",
+   "url": "https://jobs.ashbyhq.com/harvey/0d750bf9-d3f2-4816-9e28-23d12a0ef2e2",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 160000,
+     "max": 185000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "OTE $160K – $185K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "50a8df2a-c50e-4326-ae90-0c9f8ee0cf1d",
+   "title": "Senior Product Security Engineer",
+   "url": "https://jobs.ashbyhq.com/harvey/50a8df2a-c50e-4326-ae90-0c9f8ee0cf1d",
+   "locations": [
+    "San Francisco",
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 188000,
+     "max": 282000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$188K – $282K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "993e43fa-a9a1-45be-9d74-3a96c7c303ef",
+   "title": "Majors Customer Success Manager (Asset Management)",
+   "url": "https://jobs.ashbyhq.com/harvey/993e43fa-a9a1-45be-9d74-3a96c7c303ef",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 180000,
+     "max": 210000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$180K – $210K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "c2e8772a-ca9c-44ee-95fb-bbd64f57e7c4",
+   "title": "Mid-Market Customer Success Manager",
+   "url": "https://jobs.ashbyhq.com/harvey/c2e8772a-ca9c-44ee-95fb-bbd64f57e7c4",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 125000,
+     "max": 145000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$125K – $145K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "7af582ea-39f0-4e4c-ad4d-74f9740686bf",
+   "title": "Technical Account Manager",
+   "url": "https://jobs.ashbyhq.com/harvey/7af582ea-39f0-4e4c-ad4d-74f9740686bf",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": null,
+   "structuredComp": null,
+   "text": "Why Harvey At Harvey, we’re transforming how legal and professional services operate. By combining frontier agentic AI, an enterprise-grade platform, and deep domain expertise, we’re reshaping how critical knowledge work gets done for decades to come. This is a rare chance to help build a generational company at a true inflection point. We have strong product-market fit and world-class investor support. We’re scaling fast and defining a new category in real time. The work is ambitious, the bar is high, and the opportunity for growth — personal, professional, and financial — is unmatched. Our team moves fast, takes ownership, and is deeply committed to the mission — operating with intensity, staying close to our customers, and pushing each other for excellence. We live by three values: Decisiveness, Simplicity, and Job's Not Finished. We act quickly on clear judgment over perfect information, we believe simplicity is what scales, and we're never satisfied with where we are. If you want to do the best work of your career alongside people who share that drive, we'd love to build with you. At Harvey, the future of professional services is being written today — and we’re just getting started. Role Overview As Harvey continues to scale its premium customer offerings, we are hiring a Technical Account Manager to join our Customer Success organization. This role serves as a high-touch, technically fluent inbound support and escalation resource for Harvey’s largest and most strategic customers in the Majors segment. The Premium Support Specialist strengthens Harvey’s post-sale presence by partnering closely with Customer Success Managers and internal teams to deliver exceptional technical support, proactive incident management, and clear, credible customer communications. This role is ideal for someone who thrives in high-stakes environments, enjoys deep problem-solving, and takes pride in delivering a world-class customer experience. What You'll Do Own and resolve inbound support tickets from Majors accounts, serving as a primary escalation point for high-severity and technically complex issues. Triage, investigate, and resolve urgent customer issues with speed and sound judgment, coordinating across Support, Customer Success, Engineering, Product, and Security teams. Maintain deep account context, including customer workflows, configurations, integrations, and sensitivities, and apply that context to troubleshooting and communications. Provide real-time, hands-on technical support for senior customer stakeholders, including Knowledge Management, Innovation, and IT leaders. Lead clear and proactive incident communications, translating technical updates into customer-specific impact, expectations, and next steps. Participate in incident response workflows, including severity classification, escalation handling, and post-incident retrospectives. Document root causes, resolutions, and preventative actions to improve product reliability, internal knowledge coverage, and operational maturity. Contribute to the development and continuous improvement of escalation playbooks, runbooks, and support tooling. Partner closely with Customer Success Managers to enhance Harvey’s post-sale technical engagement and overall customer experience. What You Have Experience supporting enterprise or highly regulated software products in technical support, escalation management, or technical account-facing roles. Proven experience engaging and managing high-level stakeholders both internally and externally. Exceptional attention to detail with the ability to manage and resolve complex, multi-layered support cases. .Familiarity with ticketing queue systems and resolving inbound customer inquiries Strong technical foundation, with the ability to troubleshoot complex systems and collaborate effectively with Engineering and Product teams. Ability to bridge technical and non-technical communication by translating complex back-end and front-end concepts into clear, accessible language for customers. Deep customer obsession and ownership mindset - end-to-end accountability for customer outcomes and going beyond issue resolution to actively champion the customer's long-term success with the product. Exceptional judgment under pressure, with comfort operating in high-severity, time-sensitive, and confidential situations. Clear, polished written and verbal communication skills, with experience engaging senior customer stakeholders. Demonstrated ability to manage multiple urgent issues simultaneously while maintaining accuracy, composure, and customer trust. Highly collaborative mindset and strong partnership orientation with Customer Success and cross-functional teams. Comfort operating in ambiguity and contributing to process-building in a fast-scaling environment. Nice to Have Experience supporting AI-powered, data-intensive, or security- and compliance-sensitive products. Familiarity with incident management frameworks, on-call models, or escalation playbooks. Prior experience working with law firms or professional services organizations. Compensation Range $119,000 -$161,000 USD Depending on your location, an Applicant Privacy Notice may apply to you. You can find all of our Applicant Privacy Notices [ here ]. #LI-JL1 Harvey is an equal opportunity employer and does not discriminate on the basis of race, gender, sexual orientation, gender identity/expression, national origin, disability, age, genetic information, veteran status, marital status, pregnancy or related condition, or any other basis protected by law. We are committed to providing reasonable accommodations to applicants with disabilities, and requests can be made by emailing accommodations@harvey.ai",
+   "expected": {
+    "method": "text_range",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "c6e602c1-57d7-4af7-9b98-e52b5b4ff76a",
+   "title": "Legal Engineer (Law Firm, Corporate)",
+   "url": "https://jobs.ashbyhq.com/harvey/c6e602c1-57d7-4af7-9b98-e52b5b4ff76a",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": true,
+   "structuredComp": null,
+   "text": "Why Harvey At Harvey, we’re transforming how legal and professional services operate. By combining frontier agentic AI, an enterprise-grade platform, and deep domain expertise, we’re reshaping how critical knowledge work gets done for decades to come. This is a rare chance to help build a generational company at a true inflection point. We have strong product-market fit and world-class investor support. We’re scaling fast and defining a new category in real time. The work is ambitious, the bar is high, and the opportunity for growth — personal, professional, and financial — is unmatched. Our team moves fast, takes ownership, and is deeply committed to the mission — operating with intensity, staying close to our customers, and pushing each other for excellence. We live by three values: Decisiveness, Simplicity, and Job's Not Finished. We act quickly on clear judgment over perfect information, we believe simplicity is what scales, and we're never satisfied with where we are. If you want to do the best work of your career alongside people who share that drive, we'd love to build with you. At Harvey, the future of professional services is being written today — and we’re just getting started. Function Overview Harvey's Legal Engineering team is composed of former practicing attorneys who work to bring value to Harvey's prospects and customers. Legal Engineers lead discovery, demos, trainings, and onboarding alongside our AEs and CSMs. They translate real legal work into Harvey solutions, serving as the trust layer across the entire customer lifecycle, from the first pilot to the most complex, custom-built workflow. At Harvey, we segment the Legal Engineering function into three teams: Legal Engineers (Pre-Sales), Legal Engineers, Product Specialists (Post-Sales), and Legal Engineers, Custom Solutions (Pre- and Post-Sales). Legal Engineers across all three subgroups understand how lawyers think and work, and use that expertise to design, build, and refine solutions that hold up under live in-practice pressure. In doing so, they don't just drive adoption; they shape Harvey's product roadmap, ensuring every release is grounded in what the legal profession needs. It's a team built to power Harvey as the platform lawyers can trust with their most important work. You may be asked to travel around 2-3+ times per month. Travel is always for a significant business need and typically is for 1-3 days at a time. What You'll Do Legal Engineer (Pre-Sales) Legal Engineers are lawyers who left practice to help build the future of legal work. Working closely with Account Executives, they engage with many of the world’s leading law firms and legal teams throughout the pre-sales process. They lead collaborative pilot programs, guide prospects through what’s possible with AI, and work alongside lawyers to understand their workflows, build tailored solutions, and demonstrate meaningful value in real legal use cases. Along the way, they bring prospect feedback back into the product, helping shape the future of Harvey. Legal Engineer, Product Specialist (Post-Sales) LEPS take over once a prospect becomes a customer. LEPS build trusted relationships with many of the world's leading legal teams by learning their workflows and showing them how to weave Harvey into daily practice. The LEPS role spans the entire customer journey, from leading onboarding and enablement, to sitting down with a full practice group to build agents on real matters. Along the way, the LEPS translates legal practice needs into actionable feedback for product and engineering, contributes to customer-facing content across practice areas, and upholds Harvey's credibility as the leading AI platform for lawyers. Legal Engineer, Custom Solutions (Pre-Sale and Post-Sale) LECS are a specialist group that work on complex no-code custom Harvey in-app solutions. LECS meet with group heads, general counsel, and other senior stakeholders to learn how key processes run today. Drawing on their legal expertise, they use natural language prompting to design bespoke resources, including agents, playbooks, and other tools, that improve the quality, speed, and experience of that process. The build is collaborative. The LECS scope it with the customer, prototype against sample documents, and refine it alongside their team. Most LECS work happens post-sale, but the team also supports strategic accounts pre-sale on an advisory basis. LECS concentrates narrowly on designing tools that automate a specific process, and on building relationships with the senior leaders who own it. *In your initial interview with our recruiting team, you'll learn more about all three roles, and we'll identify which may be the best fit based on your background and our current hiring needs. What You Have JD or equivalent legal qualification. 3 + years of practicing law in-house, at a top-tier law firm, or advising a sophisticated corporate legal team. Strong understanding of the workflows, challenges, and demands of law firms, including balancing legal risk with business priorities. Executive presence and relationship-building skills, with the ability to establish credibility with legal and business stakeholders at all levels. Outstanding communication and presentation skills — comfortable leading a live demo, facilitating a workshop, or engaging in strategic customer conversations. Deep curiosity about AI's potential to transform legal work, paired with a practical, solutions-oriented mindset and bias toward action. Track record partnering with senior stakeholders to drive results, with curiosity for testing approaches and optimizing for customer outcomes. Cross-functional experience (business, ops, compliance, product), sales/customer-facing experience (law firm BD, secondment), and/or hands-on experience using AI tools in legal practice are all pluses. Compensation $220,000 - $320,000 USD OTE 75/25 split Depending on your location, an Applicant Privacy Notice may apply to you. You can find all of our Applicant Privacy Notices [ here ]. #LI-LS1 Harvey is an equal opportunity employer and does not discriminate on the basis of race, gender, sexual orientation, gender identity/expression, national origin, disability, age, genetic information, veteran status, marital status, pregnancy or related condition, or any other basis protected by law. We are committed to providing reasonable accommodations to applicants with disabilities, and requests can be made by emailing accommodations@harvey.ai",
+   "expected": {
+    "method": "text_range",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+# code changes: check, migrate the database, rebuild the site from the current data, ship one worker version
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+env:
+  DB_MODE: d1
+  BLOB_MODE: r2
+  CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+  CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+  D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
+  R2_BUCKET: ${{ vars.R2_BUCKET || 'jd-reporter' }}
+  R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+  R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ vars.PIPELINE_ENABLED == 'true' }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm typecheck
+      - run: pnpm test
+      - name: apply d1 migrations
+        run: pnpm --filter @jdr/api exec wrangler d1 migrations apply jd-reporter --remote
+      - name: export site data
+        run: pnpm --filter @jdr/crawler cli export-site-data
+      - name: build static site
+        run: pnpm --filter @jdr/web build
+        env:
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
+          NEXT_PUBLIC_DISPUTE_EMAIL: ${{ vars.DISPUTE_EMAIL }}
+      - name: deploy worker + assets
+        run: pnpm --filter @jdr/api exec wrangler deploy

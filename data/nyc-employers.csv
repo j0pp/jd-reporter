@@ -1,0 +1,262 @@
+name,domain,hq_city,hq_state,employee_estimate,employee_estimate_source,careers_url,ats_vendor,ats_slug,is_staffing_firm,notes
+JPMorgan Chase,jpmorganchase.com,New York,NY,300000,curated,,,,,bank
+Goldman Sachs,goldmansachs.com,New York,NY,46000,curated,,,,,bank
+Citigroup,citigroup.com,New York,NY,230000,curated,,,,,bank
+Morgan Stanley,morganstanley.com,New York,NY,80000,curated,,,,,bank
+BNY,bny.com,New York,NY,52000,curated,,,,,bank
+American Express,americanexpress.com,New York,NY,74000,curated,,,,,payments
+BlackRock,blackrock.com,New York,NY,20000,curated,,,,,asset management
+Blackstone,blackstone.com,New York,NY,4700,curated,,,,,private equity
+KKR,kkr.com,New York,NY,4500,curated,,,,,private equity
+Apollo Global Management,apollo.com,New York,NY,4500,curated,,,,,private equity
+Lazard,lazard.com,New York,NY,3200,curated,,,,,investment bank
+Evercore,evercore.com,New York,NY,2400,curated,,,,,investment bank
+Moelis & Company,moelis.com,New York,NY,1200,curated,,,,,investment bank
+PJT Partners,pjtpartners.com,New York,NY,1000,curated,,,,,investment bank
+Jefferies Financial Group,jefferies.com,New York,NY,5500,curated,,,,,investment bank
+Guggenheim Partners,guggenheimpartners.com,New York,NY,2400,curated,,,,,asset management
+Two Sigma,twosigma.com,New York,NY,2000,curated,,,,,quant trading
+Jane Street,janestreet.com,New York,NY,3000,curated,,,,,quant trading
+D. E. Shaw & Co.,deshaw.com,New York,NY,2000,curated,,,,,quant trading
+Millennium Management,mlp.com,New York,NY,6000,curated,,,,,hedge fund
+Virtu Financial,virtu.com,New York,NY,1000,curated,,,,,market maker
+Nasdaq,nasdaq.com,New York,NY,9000,curated,,,,,exchange
+S&P Global,spglobal.com,New York,NY,40000,curated,,,,,data and ratings
+Moody's Corporation,moodys.com,New York,NY,15000,curated,,,,,data and ratings
+MSCI,msci.com,New York,NY,5700,curated,,,,,index and analytics
+MarketAxess,marketaxess.com,New York,NY,900,curated,,,,,fixed income trading
+Tradeweb Markets,tradeweb.com,New York,NY,1300,curated,,,,,fixed income trading
+Broadridge Financial Solutions,broadridge.com,Lake Success,NY,14000,curated,,,,,"fintech services (HQ Lake Success; Nassau County - not NYC)"
+StoneX Group,stonex.com,New York,NY,4500,curated,,,,,brokerage
+Oppenheimer Holdings,oppenheimer.com,New York,NY,3000,curated,,,,,brokerage
+Federal Reserve Bank of New York,newyorkfed.org,New York,NY,3000,curated,,,,,central bank
+Amalgamated Bank,amalgamatedbank.com,New York,NY,450,curated,,,,,bank
+Marsh McLennan,marshmclennan.com,New York,NY,85000,curated,,,,,insurance broker
+American International Group,aig.com,New York,NY,25000,curated,,,,,insurer
+MetLife,metlife.com,New York,NY,45000,curated,,,,,insurer
+New York Life Insurance,newyorklife.com,New York,NY,12000,curated,,,,,insurer
+Guardian Life,guardianlife.com,New York,NY,9000,curated,,,,,insurer
+TIAA,tiaa.org,New York,NY,16000,curated,,,,,retirement services
+Mutual of America,mutualofamerica.com,New York,NY,1100,curated,,,,,retirement services
+Equitable Holdings,equitable.com,New York,NY,8000,curated,,,,,insurer
+Voya Financial,voya.com,New York,NY,6000,curated,,,,,retirement services
+Oscar Health,hioscar.com,New York,NY,1700,curated,,greenhouse,oscar,,health insurer
+Lemonade,lemonade.com,New York,NY,1200,curated,,ashby,lemonade,,insurtech
+EmblemHealth,emblemhealth.com,New York,NY,3000,curated,,,,,health insurer
+Healthfirst,healthfirst.org,New York,NY,5000,curated,,,,,health insurer
+NYU Langone Health,nyulangone.org,New York,NY,47000,curated,,,,,hospital system
+Mount Sinai Health System,mountsinai.org,New York,NY,43000,curated,,,,,hospital system
+NewYork-Presbyterian,nyp.org,New York,NY,48000,curated,,,,,hospital system
+Northwell Health,northwell.edu,New Hyde Park,NY,85000,curated,,,,,hospital system
+Memorial Sloan Kettering Cancer Center,mskcc.org,New York,NY,21000,curated,,,,,hospital
+Montefiore Medical Center,montefioreeinstein.org,Bronx,NY,40000,curated,,,,,hospital system
+Hospital for Special Surgery,hss.edu,New York,NY,6000,curated,,,,,hospital
+Maimonides Medical Center,maimo.org,Brooklyn,NY,7000,curated,,,,,hospital
+NYC Health + Hospitals,nychealthandhospitals.org,New York,NY,43000,curated,,,,,public hospital system
+Weill Cornell Medicine,weill.cornell.edu,New York,NY,8000,curated,,,,,academic medicine
+The Rockefeller University,rockefeller.edu,New York,NY,2000,curated,,,,,research university
+Callen-Lorde Community Health Center,callen-lorde.org,New York,NY,500,curated,,,,,community health
+Columbia University,columbia.edu,New York,NY,30000,curated,,,,,university
+New York University,nyu.edu,New York,NY,20000,curated,,,,,university
+City University of New York,cuny.edu,New York,NY,45000,curated,,,,,public university system
+Fordham University,fordham.edu,Bronx,NY,4000,curated,,,,,university
+The New School,newschool.edu,New York,NY,3000,curated,,,,,university
+Pace University,pace.edu,New York,NY,2500,curated,,,,,university
+St. John's University,stjohns.edu,Queens,NY,2500,curated,,,,,university
+Barnard College,barnard.edu,New York,NY,1200,curated,,,,,college
+Yeshiva University,yu.edu,New York,NY,2500,curated,,,,,university
+The Cooper Union,cooper.edu,New York,NY,500,curated,,,,,college
+The Juilliard School,juilliard.edu,New York,NY,1000,curated,,,,,conservatory
+Pratt Institute,pratt.edu,Brooklyn,NY,1500,curated,,,,,art and design school
+School of Visual Arts,sva.edu,New York,NY,1500,curated,,,,,art school
+Teachers College Columbia University,tc.columbia.edu,New York,NY,1200,curated,,,,,graduate school
+New York City Public Schools,schools.nyc.gov,New York,NY,150000,curated,,,,,public school system
+Success Academy Charter Schools,successacademies.org,New York,NY,5000,curated,,,,,charter network
+KIPP NYC,kippnyc.org,New York,NY,1200,curated,,,,,charter network
+Uncommon Schools,uncommonschools.org,New York,NY,2000,curated,,,,,charter network
+The New York Times Company,nytco.com,New York,NY,5900,curated,,,,,news
+Bloomberg,bloomberg.com,New York,NY,21000,curated,,,,,financial data and news
+NBCUniversal,nbcuni.com,New York,NY,30000,curated,,,,,media
+Paramount,paramount.com,New York,NY,18000,curated,,,,,media
+Warner Bros. Discovery,wbd.com,New York,NY,35000,curated,,,,,media
+Conde Nast,condenast.com,New York,NY,6000,curated,,,,,publishing
+Hearst,hearst.com,New York,NY,20000,curated,,greenhouse,hearst,,publishing
+News Corp,newscorp.com,New York,NY,25000,curated,,,,,publishing
+Fox Corporation,foxcorp.com,New York,NY,9000,curated,,,,,media
+Penguin Random House,penguinrandomhouse.com,New York,NY,6000,curated,,,,,book publishing
+HarperCollins Publishers,harpercollins.com,New York,NY,4000,curated,,,,,book publishing
+Simon & Schuster,simonandschuster.com,New York,NY,1500,curated,,,,,book publishing
+Macmillan Publishers,macmillan.com,New York,NY,1500,curated,,,,,book publishing
+Scholastic,scholastic.com,New York,NY,5000,curated,,,,,book publishing
+Vox Media,voxmedia.com,New York,NY,1500,curated,,,,,digital media
+BuzzFeed,buzzfeed.com,New York,NY,1000,curated,,greenhouse,buzzfeed,,digital media
+Business Insider,businessinsider.com,New York,NY,1000,curated,,,,,digital media
+SiriusXM,siriusxm.com,New York,NY,5000,curated,,,,,audio
+Madison Square Garden Sports,msgsports.com,New York,NY,1000,curated,,,,,sports
+Madison Square Garden Entertainment,msgentertainment.com,New York,NY,3000,curated,,,,,live entertainment
+AMC Networks,amcnetworks.com,New York,NY,1600,curated,,,,,media
+The Associated Press,ap.org,New York,NY,3000,curated,,,,,news wire
+The WNET Group,wnet.org,New York,NY,500,curated,,,,,public television
+Ziff Davis,ziffdavis.com,New York,NY,3800,curated,,,,,digital media
+Omnicom Group,omnicomgroup.com,New York,NY,75000,curated,,,,,advertising holding company
+Interpublic Group,interpublicgroup.com,New York,NY,55000,curated,,,,,advertising holding company
+Ogilvy,ogilvy.com,New York,NY,4000,curated,,,,,advertising agency
+BBDO Worldwide,bbdo.com,New York,NY,3000,curated,,,,,advertising agency
+McCann Worldgroup,mccannworldgroup.com,New York,NY,5000,curated,,,,,advertising agency
+Grey Group,grey.com,New York,NY,2500,curated,,,,,advertising agency
+Droga5,droga5.com,New York,NY,700,curated,,,,,advertising agency
+Horizon Media,horizonmedia.com,New York,NY,2500,curated,,,,,media agency
+VaynerMedia,vaynermedia.com,New York,NY,1000,curated,,greenhouse,vaynermedia,,advertising agency
+Mediaocean,mediaocean.com,New York,NY,1500,curated,,,,,ad tech
+"Macy's, Inc.",macysinc.com,New York,NY,85000,curated,,,,,retail
+The Estee Lauder Companies,elcompanies.com,New York,NY,60000,curated,,,,,beauty
+Ralph Lauren,ralphlauren.com,New York,NY,23000,curated,,,,,apparel
+Tiffany & Co.,tiffany.com,New York,NY,14000,curated,,,,,jewelry
+Tapestry,tapestry.com,New York,NY,16000,curated,,,,,apparel and accessories
+Capri Holdings,capriholdings.com,New York,NY,12000,curated,,,,,apparel and accessories
+PVH Corp.,pvh.com,New York,NY,26000,curated,,,,,apparel
+Saks Fifth Avenue,saks.com,New York,NY,8000,curated,,,,,retail
+Barnes & Noble,barnesandnoble.com,New York,NY,20000,curated,,,,,retail
+Warby Parker,warbyparker.com,New York,NY,3000,curated,,,,,eyewear retail
+Casper Sleep,casper.com,New York,NY,500,curated,,,,,consumer goods
+Glossier,glossier.com,New York,NY,500,curated,,greenhouse,glossier,,beauty
+Rent the Runway,renttherunway.com,Brooklyn,NY,1000,curated,,,,,apparel rental
+Etsy,etsy.com,Brooklyn,NY,2400,curated,,,,,marketplace
+Peloton Interactive,onepeloton.com,New York,NY,3500,curated,,greenhouse,peloton,,connected fitness
+Chobani,chobani.com,Norwich,NY,2000,curated,,,,,"food (principal executive offices Norwich; Chenango County - not NYC)"
+Colgate-Palmolive,colgatepalmolive.com,New York,NY,34000,curated,,,,,consumer goods
+Pfizer,pfizer.com,New York,NY,83000,curated,,,,,pharmaceutical
+Loews Corporation,loews.com,New York,NY,12000,curated,,,,,holding company
+Consolidated Edison,coned.com,New York,NY,14000,curated,,,,,utility
+Verizon,verizon.com,New York,NY,100000,curated,,,,,telecom
+Shake Shack,shakeshack.com,New York,NY,10000,curated,,,,,restaurants
+Union Square Hospitality Group,ushg.com,New York,NY,3000,curated,,,,,restaurants
+DIG,diginn.com,New York,NY,1500,curated,,,,,restaurants
+Slice,slicelife.com,New York,NY,800,curated,,greenhouse,slice,,restaurant technology
+Bombas,bombas.com,New York,NY,250,curated,,greenhouse,bombas,,apparel
+"Harry's, Inc.",harrys.com,New York,NY,700,curated,,greenhouse,harrys,,consumer goods
+BARK,barkbox.com,New York,NY,500,curated,,greenhouse,bark,,pet products
+Deloitte US,deloitte.com,New York,NY,170000,curated,,,,,professional services
+PwC US,pwc.com,New York,NY,75000,curated,,,,,professional services
+KPMG US,kpmg.com,New York,NY,39000,curated,,,,,professional services
+EY US,ey.com,New York,NY,70000,curated,,,,,professional services
+McKinsey & Company,mckinsey.com,New York,NY,45000,curated,,,,,management consulting
+Alvarez & Marsal,alvarezandmarsal.com,New York,NY,9000,curated,,,,,advisory
+"Skadden, Arps, Slate, Meagher & Flom",skadden.com,New York,NY,4500,curated,,,,,law firm
+Cravath Swaine & Moore,cravath.com,New York,NY,1000,curated,,,,,law firm
+Sullivan & Cromwell,sullcrom.com,New York,NY,1600,curated,,,,,law firm
+Davis Polk & Wardwell,davispolk.com,New York,NY,1600,curated,,,,,law firm
+Simpson Thacher & Bartlett,stblaw.com,New York,NY,1800,curated,,,,,law firm
+"Paul, Weiss, Rifkind, Wharton & Garrison",paulweiss.com,New York,NY,2000,curated,,,,,law firm
+Weil Gotshal & Manges,weil.com,New York,NY,2000,curated,,,,,law firm
+Debevoise & Plimpton,debevoise.com,New York,NY,1200,curated,,,,,law firm
+Cleary Gottlieb Steen & Hamilton,clearygottlieb.com,New York,NY,2000,curated,,,,,law firm
+Fried Frank,friedfrank.com,New York,NY,900,curated,,,,,law firm
+Willkie Farr & Gallagher,willkie.com,New York,NY,1300,curated,,,,,law firm
+Cadwalader Wickersham & Taft,cadwalader.com,New York,NY,800,curated,,,,,law firm
+Proskauer Rose,proskauer.com,New York,NY,1800,curated,,,,,law firm
+Kramer Levin,kramerlevin.com,New York,NY,900,curated,,,,,law firm
+Schulte Roth & Zabel,srz.com,New York,NY,800,curated,,,,,law firm
+Milbank,milbank.com,New York,NY,1500,curated,,,,,law firm
+White & Case,whitecase.com,New York,NY,5000,curated,,,,,law firm
+Wachtell Lipton Rosen & Katz,wlrk.com,New York,NY,700,curated,,,,,law firm
+Datadog,datadoghq.com,New York,NY,5500,curated,,greenhouse,datadog,,observability software
+MongoDB,mongodb.com,New York,NY,5000,curated,,greenhouse,mongodb,,database software
+Squarespace,squarespace.com,New York,NY,1700,curated,,greenhouse,squarespace,,website software
+Ramp,ramp.com,New York,NY,1200,curated,,ashby,ramp,,fintech
+Eisen,witheisen.com,New York,NY,,curated,,ashby,eisen,,fintech named in the project spec
+DigitalOcean,digitalocean.com,New York,NY,1200,curated,,,,,cloud infrastructure
+Justworks,justworks.com,New York,NY,1200,curated,,greenhouse,justworks,,HR and payroll
+Betterment,betterment.com,New York,NY,700,curated,,greenhouse,betterment,,wealth management
+Compass,compass.com,New York,NY,15000,curated,,,,,real estate brokerage
+Zocdoc,zocdoc.com,New York,NY,900,curated,,greenhouse,zocdoc,,health marketplace
+Olo,olo.com,New York,NY,700,curated,,lever,olo,,restaurant software
+Vimeo,vimeo.com,New York,NY,800,curated,,,,,video software
+Yext,yext.com,New York,NY,1000,curated,,greenhouse,yext,,search software
+Taboola,taboola.com,New York,NY,2000,curated,,greenhouse,taboola,,ad tech
+Outbrain,outbrain.com,New York,NY,1000,curated,,,,,ad tech
+Dataminr,dataminr.com,New York,NY,800,curated,,,,,real-time AI
+CLEAR,clearme.com,New York,NY,3000,curated,,,,,identity
+Via,ridewithvia.com,New York,NY,1000,curated,,greenhouse,via,,transit technology
+Noom,noom.com,New York,NY,1200,curated,,,,,digital health
+Ro,ro.co,New York,NY,700,curated,,lever,ro,,telehealth
+Cityblock Health,cityblock.com,Brooklyn,NY,2000,curated,,,,,value-based care
+Cedar,cedar.com,New York,NY,400,curated,,,,,healthcare payments
+Flatiron Health,flatiron.com,New York,NY,2500,curated,,greenhouse,flatironhealth,,oncology data
+Talkspace,talkspace.com,New York,NY,400,curated,,greenhouse,talkspace,,teletherapy
+Braze,braze.com,New York,NY,1500,curated,,greenhouse,braze,,customer engagement software
+Movable Ink,movableink.com,New York,NY,600,curated,,greenhouse,movableink,,marketing software
+Attentive,attentive.com,New York,NY,1000,curated,,greenhouse,attentive,,marketing software
+Integral Ad Science,integralads.com,New York,NY,1000,curated,,,,,ad verification
+DoubleVerify,doubleverify.com,New York,NY,1200,curated,,greenhouse,doubleverify,,ad verification
+Sprinklr,sprinklr.com,New York,NY,4000,curated,,,,,customer experience software
+UiPath,uipath.com,New York,NY,4000,curated,,ashby,uipath,,automation software
+Cockroach Labs,cockroachlabs.com,New York,NY,400,curated,,greenhouse,cockroachlabs,,database software
+Greenhouse Software,greenhouse.io,New York,NY,800,curated,,greenhouse,greenhouse,,recruiting software
+SeatGeek,seatgeek.com,New York,NY,700,curated,,greenhouse,seatgeek,,ticketing
+Foursquare,foursquare.com,New York,NY,400,curated,,,,,location technology
+Kickstarter,kickstarter.com,Brooklyn,NY,150,curated,,greenhouse,kickstarter,,crowdfunding
+Meetup,meetup.com,New York,NY,200,curated,,,,,community platform
+Genius,genius.com,Brooklyn,NY,100,curated,,,,,music media
+Gemini,gemini.com,New York,NY,700,curated,,greenhouse,gemini,,crypto exchange
+Paxos,paxos.com,New York,NY,400,curated,,ashby,paxos,,blockchain infrastructure
+Fireblocks,fireblocks.com,New York,NY,800,curated,,greenhouse,fireblocks,,digital asset custody
+Chainalysis,chainalysis.com,New York,NY,900,curated,,,,,blockchain analytics
+Andela,andela.com,New York,NY,500,curated,,ashby,andela,,talent marketplace
+WeWork,wework.com,New York,NY,2500,curated,,,,,flexible workspace
+Better Home & Finance,better.com,New York,NY,1000,curated,,,,,digital mortgage
+Stash,stash.com,New York,NY,400,curated,,,,,consumer fintech
+Current,current.com,New York,NY,500,curated,,,,,consumer fintech
+Policygenius,policygenius.com,New York,NY,500,curated,,,,,insurance marketplace
+Alloy,alloy.com,New York,NY,300,curated,,,,,identity risk software
+Infor,infor.com,New York,NY,17000,curated,,,,,enterprise software
+Metropolitan Transportation Authority,mta.info,New York,NY,70000,curated,,,,,public transit
+Port Authority of New York and New Jersey,panynj.gov,New York,NY,8000,curated,,,,,public authority
+New York City Economic Development Corporation,edc.nyc,New York,NY,500,curated,,,,,city-adjacent nonprofit
+Related Companies,related.com,New York,NY,4000,curated,,,,,real estate
+Tishman Speyer,tishmanspeyer.com,New York,NY,1000,curated,,,,,real estate
+SL Green Realty,slgreen.com,New York,NY,1000,curated,,,,,real estate
+Vornado Realty Trust,vno.com,New York,NY,3000,curated,,,,,real estate
+Silverstein Properties,silversteinproperties.com,New York,NY,500,curated,,,,,real estate
+Turner Construction,turnerconstruction.com,New York,NY,10000,curated,,,,,construction
+Kohn Pedersen Fox,kpf.com,New York,NY,700,curated,,,,,architecture
+Perkins Eastman,perkinseastman.com,New York,NY,1000,curated,,,,,architecture
+The Metropolitan Museum of Art,metmuseum.org,New York,NY,2000,curated,,,,,museum
+Museum of Modern Art,moma.org,New York,NY,1000,curated,,,,,museum
+American Museum of Natural History,amnh.org,New York,NY,1200,curated,,,,,museum
+Whitney Museum of American Art,whitney.org,New York,NY,400,curated,,,,,museum
+Brooklyn Museum,brooklynmuseum.org,Brooklyn,NY,300,curated,,,,,museum
+The New York Public Library,nypl.org,New York,NY,3000,curated,,,,,library
+Brooklyn Public Library,bklynlibrary.org,Brooklyn,NY,1200,curated,,,,,library
+Queens Public Library,queenslibrary.org,Queens,NY,1400,curated,,,,,library
+Lincoln Center for the Performing Arts,lincolncenter.org,New York,NY,500,curated,,,,,performing arts
+Carnegie Hall,carnegiehall.org,New York,NY,400,curated,,,,,performing arts
+Wildlife Conservation Society,wcs.org,Bronx,NY,2000,curated,,,,,zoos and conservation
+New York Botanical Garden,nybg.org,Bronx,NY,700,curated,,,,,botanical garden
+Robin Hood Foundation,robinhood.org,New York,NY,150,curated,,,,,philanthropy
+Ford Foundation,fordfoundation.org,New York,NY,600,curated,,,,,philanthropy
+The Rockefeller Foundation,rockefellerfoundation.org,New York,NY,300,curated,,,,,philanthropy
+Open Society Foundations,opensocietyfoundations.org,New York,NY,800,curated,,,,,philanthropy
+Carnegie Corporation of New York,carnegie.org,New York,NY,150,curated,,,,,philanthropy
+UJA-Federation of New York,ujafedny.org,New York,NY,400,curated,,,,,philanthropy
+Catholic Charities of New York,catholiccharitiesny.org,New York,NY,2000,curated,,,,,social services
+Henry Street Settlement,henrystreet.org,New York,NY,800,curated,,,,,social services
+Goddard Riverside,goddard.org,New York,NY,600,curated,,,,,social services
+City Harvest,cityharvest.org,New York,NY,200,curated,,,,,food rescue
+God's Love We Deliver,glwd.org,New York,NY,150,curated,,,,,social services
+The Legal Aid Society,legalaidnyc.org,New York,NY,2000,curated,,,,,legal services
+Planned Parenthood of Greater New York,ppgreaterny.org,New York,NY,700,curated,,,,,health services
+Human Rights Watch,hrw.org,New York,NY,550,curated,,,,,advocacy
+Amnesty International USA,amnestyusa.org,New York,NY,300,curated,,,,,advocacy
+Council on Foreign Relations,cfr.org,New York,NY,350,curated,,,,,think tank
+American Civil Liberties Union,aclu.org,New York,NY,1000,curated,,,,,advocacy
+NAACP Legal Defense Fund,naacpldf.org,New York,NY,200,curated,,,,,advocacy
+Environmental Defense Fund,edf.org,New York,NY,1000,curated,,,,,advocacy
+Natural Resources Defense Council,nrdc.org,New York,NY,700,curated,,,,,advocacy
+Mitchell Martin,mitchellmartin.com,New York,NY,400,curated,,,,true,staffing agency
+Solomon Page,solomonpage.com,New York,NY,500,curated,,,,true,staffing agency
+Atrium Staffing,atriumstaff.com,New York,NY,300,curated,,,,true,staffing agency
+Green Key Resources,greenkeyllc.com,New York,NY,300,curated,,,,true,staffing agency
+Tandym Group,tandymgroup.com,New York,NY,400,curated,,,,true,staffing agency
+Michael Page US,michaelpage.com,New York,NY,1000,curated,,,,true,"staffing agency, US arm of PageGroup"
+Phaidon International,phaidoninternational.com,New York,NY,500,curated,,,,true,staffing agency

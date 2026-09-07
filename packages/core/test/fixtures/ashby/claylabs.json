@@ -1,0 +1,117 @@
+{
+ "vendor": "ashby",
+ "slug": "claylabs",
+ "cases": [
+  {
+   "externalId": "1a19cbf3-916e-4723-8edf-f3e2c12b3494",
+   "title": "Commercial Counsel",
+   "url": "https://jobs.ashbyhq.com/claylabs/1a19cbf3-916e-4723-8edf-f3e2c12b3494",
+   "locations": [
+    "New York",
+    "San Francisco"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 200000,
+     "max": 300000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$200K – $300K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "6c65bbb9-8205-400c-b971-cd91897b6d8f",
+   "title": "Strategic Finance ",
+   "url": "https://jobs.ashbyhq.com/claylabs/6c65bbb9-8205-400c-b971-cd91897b6d8f",
+   "locations": [
+    "New York"
+   ],
+   "isRemote": false,
+   "structuredComp": [
+    {
+     "min": 190000,
+     "max": 240000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$190K – $240K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": false,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "67a53448-184d-48e4-a040-d17fc7f59b37",
+   "title": "Product Design",
+   "url": "https://jobs.ashbyhq.com/claylabs/67a53448-184d-48e4-a040-d17fc7f59b37",
+   "locations": [
+    "New York",
+    "San Francisco"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 160000,
+     "max": 250000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$160K – $250K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  },
+  {
+   "externalId": "2eba1b88-d3d2-4c80-a506-b367d85110bd",
+   "title": "Engineering Manager",
+   "url": "https://jobs.ashbyhq.com/claylabs/2eba1b88-d3d2-4c80-a506-b367d85110bd",
+   "locations": [
+    "New York",
+    "San Francisco"
+   ],
+   "isRemote": true,
+   "structuredComp": [
+    {
+     "min": 240000,
+     "max": 300000,
+     "currency": "USD",
+     "interval": "1 YEAR",
+     "summary": "$240K – $300K"
+    }
+   ],
+   "text": null,
+   "expected": {
+    "method": "structured",
+    "nyc": "covered",
+    "nys": "covered",
+    "locClass": "ny_bare",
+    "multiCity": true,
+    "isOffsite": false
+   }
+  }
+ ]
+}

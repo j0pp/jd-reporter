@@ -1,0 +1,25 @@
+{
+  "name": "@jdr/crawler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cli": "node --env-file-if-exists=../../.env --import tsx src/cli.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@jdr/core": "workspace:*",
+    "@jdr/db": "workspace:*",
+    "aws4fetch": "^1.0.20",
+    "commander": "^15.0.0",
+    "csv-parse": "^7.0.2",
+    "drizzle-orm": "^0.45.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
+  }
+}

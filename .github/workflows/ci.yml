@@ -1,0 +1,18 @@
+# runs everywhere, needs no secrets. build first: `next build` generates next-env.d.ts, which typecheck wants
+name: ci
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      # the site must build with no data files at all (empty placeholders), so a fresh checkout is never broken
+      - run: pnpm --filter @jdr/web build
+      - run: pnpm typecheck
+      - run: pnpm test
