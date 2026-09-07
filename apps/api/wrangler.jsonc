@@ -17,7 +17,7 @@
       "binding": "DB",
       "database_name": "jd-reporter",
       // wrangler d1 create jd-reporter, then paste the id here
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "a2a904b1-2cb0-4840-9533-c85aee23263f",
       "migrations_dir": "../../packages/db/migrations"
     }
   ],
