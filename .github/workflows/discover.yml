@@ -26,7 +26,6 @@ env:
 jobs:
   discover:
     runs-on: ubuntu-latest
-    if: ${{ vars.PIPELINE_ENABLED == 'true' }}
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
